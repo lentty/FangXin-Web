@@ -1,0 +1,117 @@
+page {
+  height: 100%;
+  background: white;
+}
+
+.top {
+  position: relative;
+  top: 10px;
+  width: 100%;
+  height: 40px;
+  left: 10px;
+  display: flex;
+  border-radius: 20px;
+  background-color: white;
+}
+
+.top .search_btn {
+  width: 40px;
+  height: 40px;
+}
+
+.top .search_btn image {
+  width: 100%;
+  height: 100%;
+}
+
+.top input {
+  width: 80%;
+  height: 40px;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.down {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  top: 30rpx;
+  width: 100%;
+}
+
+.list {
+  display: flex;
+  height: 150rpx;
+  position: relative;
+  width: 100%;
+  padding-bottom: 10rpx;
+}
+
+
+.imgs {
+  position: relative;
+  float: left;
+  width: 200rpx;
+  height: 150rpx;
+}
+
+.imgs image {
+  width: 100%;
+  height: 100%;
+}
+
+.nav_right {
+  display: flex;
+  float: right;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  left: 100rpx;
+  height: 150rpx;
+  width: 550rpx;
+}
+
+.nav_right .right_top {
+  display: flex;
+  position: relative;
+  height: 100rpx;
+}
+
+.text_name {
+  position: relative;
+  top: 30rpx;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+}
+
+.nav_right .right_down {
+  display: flex;
+  position: relative;
+  height: 50rpx;
+}
+
+.nav_right .right_down left_spec {
+  margin-right: 10px;
+}
+
+.text_spec {
+  font-size: 12px;
+  margin-right: 10px;
+}
+
+
+.text_style {
+  color: red;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.loadMore {
+  text-align: center;
+  margin: 30px;
+  color: #aaa;
+  font-size: 16px;
+}

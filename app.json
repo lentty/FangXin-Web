@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/home/home",
+    "pages/cat/cat",
+    "pages/list/list",
+    "pages/product/product",
+    "pages/shopCart/cart",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#66CCCC",
+    "navigationBarTitleText": "芳馨食品",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#858585",
+    "selectedColor": "#008842",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/bot_home.png",
+        "selectedIconPath": "images/bot_home02.png"
+      },
+      {
+        "pagePath": "pages/cat/cat",
+        "text": "分类",
+        "iconPath": "images/icon_fenlei.png",
+        "selectedIconPath": "images/icon_fenlei_default.png"
+      },
+      {
+        "pagePath": "pages/shopCart/cart",
+        "text": "购物车",
+        "iconPath": "images/bot_shoppingcar.png",
+        "selectedIconPath": "images/bot_shoppingcar02.png"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "text": "个人中心",
+        "iconPath": "images/bot_grzx.png",
+        "selectedIconPath": "images/bot_grzx02.png"
+      }
+    ]
+  }
+}

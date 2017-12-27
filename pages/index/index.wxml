@@ -1,0 +1,45 @@
+
+<!--index.wxml-->
+<view class="container">
+  <scroll-view scroll-y="true" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" 
+  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" class="scrollStyle"> 
+    <!--顶部搜索-->
+    <view class="top">
+      <input type="text" placeholder="输入关键字搜索商品" placeholder-style="font-size:70%" auto-focus focus="{{focus}}" value="{{searchValue}}"
+        bindinput="searchValueInput"/>
+      <view class="search_btn" bindtap="doSearch"><image src="../../images/home_top_search@2x.png"></image></view>
+    </view>
+    <!-- 轮播图片 -->
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="banner">
+      <block wx:for="{{promotedIamges}}">
+         <navigator url="../product/product?productId={{item.productId}}">
+           <swiper-item>
+             <image src="{{item.src}}"/>
+           </swiper-item>
+        </navigator>
+      </block>
+    </swiper>
+    <!-- 轮播图片end -->	  
+    <view class="down">
+      <view class="down_title"><text>热销商品</text></view>
+      <view  wx:for="{{promotedProducts}}" data-index="{{index}}" data-id="{{item.id}}" class="list">
+          <navigator url="../product/product?productId={{item.id}}">
+              <view class="imgs"><image class="in-img" src="{{item.imageSrc}}"background-size="cover" mode="scaleToFill"></image></view>
+              <view class="nav_right">
+                <view class="right_top">
+                  <text class="text_name">{{item.name}}</text>
+                </view>
+                <view class="right_down">
+                  <view class="left_spec">
+                    <text class="text_spec">{{item.spec}}/{{item.unit}} </text>
+                  </view>
+                  <view class="right_price">
+                    <text class="text_style">¥ {{item.retailPrice}}</text>
+                  </view>
+                </view>
+              </view>
+          </navigator>
+      </view>
+    </view>
+  </scroll-view>
+</view>

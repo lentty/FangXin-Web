@@ -1,0 +1,31 @@
+<view class="container">
+   <scroll-view scroll-y="true" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" 
+  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}"> 
+  <view class="top">
+		<input type="text" placeholder="输入关键字搜索商品名" placeholder-style="font-size:70%" auto-focus focus="{{focus}}" value="{{searchValue}}"
+      bindinput="searchValueInput"/>
+		<view class="search_btn" bindtap="doSearch"><image src="../../images/home_top_search@2x.png"></image></view>
+	</view>
+  <view class="down"> 
+      <view  wx:for="{{products}}" wx:key="*this" data-index="{{index}}" data-id="{{item.id}}" class="list">
+          <navigator url="../product/product?productId={{item.id}}">
+              <view class="imgs"><image class="in-img" src="{{item.imageSrc}}"background-size="cover" mode="scaleToFill"></image></view>
+              <view class="nav_right">
+                <view class="right_top">
+                   <text class="text_name">{{item.name}}</text>
+                 </view>
+                <view class="right_down">
+                  <view class="left_spec">
+                    <text class="text_spec">{{item.spec}}/{{item.unit}} </text>
+                   </view>
+                  <view class="right_price">
+                     <text class="text_style">¥ {{item.retailPrice}}</text>
+                  </view>
+                </view>
+              </view>
+          </navigator>
+        </view>
+    <view bindtap="loadMore" data-lastid="{{lastid}}" data-isfrist="{{isfrist}}" class="loadMore" style="display:{{moreHidden}}">加载更多</view>
+    </view>
+  </scroll-view>
+</view>

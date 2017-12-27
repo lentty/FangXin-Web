@@ -1,0 +1,150 @@
+/**index.wxss**/
+/*顶部搜索*/
+.top {
+  position: relative;
+  top: 10px;
+  width: 100%;
+  height: 40px;
+  left: 10px;
+  display: flex;
+  border-radius: 20px;
+  background-color: white;
+}
+
+.top .search_btn {
+  width: 40px;
+  height: 40px;
+}
+
+.top .search_btn image {
+  width: 100%;
+  height: 100%;
+}
+
+.top input {
+  width: 80%;
+  height: 40px;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.banner {
+  position: relative;
+  top: 30rpx;
+  width: 100%;
+  height: 600rpx;
+}
+
+.banner image {
+  width: 100%;
+  height: 100%;
+}
+
+.down {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  top: 5rpx;
+  width: 100%;
+  height: 100%;
+}
+
+.down_title{
+  position: relative;
+  width: 100%;
+  height: 50rpx;
+  top: 10rpx;
+  left: 30rpx;
+  font-size: 24rpx;
+  color: grey;
+}
+
+.list {
+  display: flex;
+  height: 150rpx;
+  position: relative;
+  width: 100%;
+}
+
+/*.list::before {
+  content: "";
+  position: absolute;
+  left: 20rpx;
+  right: 30rpx;
+  top: 150rpx;
+  height: 1px;
+  border-top: 1rpx solid;
+  color: #d8d8d8;
+}
+
+.list:first-child:before {
+  display: none;
+}*/
+
+
+.imgs {
+  position: relative;
+  float: left;
+  width: 200rpx;
+  height: 150rpx;
+}
+
+.imgs image {
+  width: 100%;
+  height: 100%;
+}
+
+.nav_right {
+  display: flex;
+  float: right;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  left: 100rpx;
+  height: 150rpx;
+  width: 550rpx;
+}
+
+.nav_right .right_top {
+  display: flex;
+  position: relative;
+  height: 100rpx;
+}
+
+.text_name {
+  position: relative;
+  top: 30rpx;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+}
+
+.nav_right .right_down {
+  display: flex;
+  position: relative;
+  height: 50rpx;
+}
+
+.nav_right .right_down left_spec {
+  margin-right: 10px;
+  bottom: 0;
+}
+
+.text_spec {
+  font-size: 12px;
+  margin-right: 10px;
+}
+
+.nav_right .right_down right_price {
+  bottom: 0;
+}
+
+.text_style {
+  color: red;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+

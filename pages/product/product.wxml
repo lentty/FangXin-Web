@@ -1,0 +1,90 @@
+
+<view class="container">
+<scroll-view scroll-y="true" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" 
+  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" class="scrollStyle"> 
+	<!-- 轮播图片 -->
+	<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="banner">
+		<block wx:for="{{product.images}}">
+			<swiper-item>
+				<image src="{{item.src}}"/>
+			</swiper-item>
+		</block>
+	</swiper><!-- 轮播图片end -->	
+	<!-- 商品信息 -->
+	<view class="intro">
+		<view class="introName">
+			<text>{{product.name}}</text>
+		</view>
+		<text class="introPrice">¥ {{product.retailPrice}}</text>		
+	</view>
+	<!-- 商品参数 -->
+	<view class="product_details">
+			<view class= "details" bindtap="kindToggle" data-status="{{isOpen}}">
+          <text class="details_text">商品参数</text>
+          <view class="navigator-arrow"></view>
+      </view>
+      <view wx:if="{{isOpen}}">
+          <view class="table">
+             <view class="tr">
+                <view class="td">条码</view>
+                <view class="td">{{product.code}}</view>
+             </view>
+             <view class="tr">
+                <view class="td">规格</view>
+                <view class="td">{{product.spec}} /{{product.unit}}</view>
+             </view>
+             <view class="tr">
+                <view class="td">产地</view>
+                <view class="td">
+                  <view wx:if="{{product.origin}}">{{product.origin}}</view>
+                  <view wx:else>暂无数据</view>
+                </view>
+             </view>
+              <view class="tr">
+                <view class="td">保质期</view>
+                <view class="td">
+                  <view wx:if="{{product.period}}">{{product.period}}</view>
+                  <view wx:else>暂无数据</view>
+                </view>
+             </view>
+          </view>
+      </view>
+	</view>
+	
+	<block wx:if="{{isShow}}">
+		<view class="add_item_show">
+			<view class="buy_cont">
+				<view class="shopcar">
+					<view class="shopcar_top">
+						<view class="pro_pic">
+							<image src="{{product.imageSrc}}"/>
+						</view>
+						<view class="kucun">
+							<view class="introPrice">¥ {{product.retailPrice}}</view>
+							<view class="amount">库存{{product.amount}}件</view>
+						</view>
+						<view class="close" bindtap="isClose">×</view>
+					</view>
+					<view class="num">
+						<view class="sl">数量：</view>
+						<view class="buynum">
+				            <view class="disnum" data-alpha-beta="0" bindtap="changeNum">-</view>
+				            <view class="nownum">{{buynum}}</view>
+				            <view class="addnum" data-alpha-beta="1" bindtap="changeNum">+</view>
+				          </view>
+					</view>
+				</view>
+				<view class="true_btn" bindtap="toastTap">确认</view>
+			</view>
+		</view>
+	</block>
+ </scroll-view>  
+ <view class="bottom_item_wrap">
+		<view class="bottom_item">
+			<view class="bottom_item_right">
+				<view class="buy_btn btn">立即购买</view>
+        <view class="btn" bindtap="isShow">加入购物车</view>
+			</view>
+		</view>
+	</view>	
+</view>

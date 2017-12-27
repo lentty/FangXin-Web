@@ -1,0 +1,292 @@
+.container {
+  height: 100%;
+  width: 100%;
+}
+
+.scrollStyle{
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 150rpx;
+}
+
+.banner {
+  margin: auto;
+  width: 100%;
+  height: 700rpx;
+}
+
+.banner image {
+  width: 100%;
+  height: 100%;
+}
+
+.intro {
+  margin: auto;
+  width: 100%;
+  height: 100rpx;
+  background-color: white;
+}
+
+.intro .introName {
+  padding: 5rpx 0 10rpx 0;
+}
+
+.intro .introName text {
+  margin-left: 20rpx;
+  font-size: 36rpx;
+  color: #333;
+}
+
+.introPrice {
+  color: #ff6662;
+  font-size: 36rpx;
+  margin-left: 20rpx;
+}
+
+.product_details {
+  position: relative;
+  width: 100%;
+}
+
+.details {
+  opacity: 1;
+  position: relative;
+  background-color: #fff;
+  line-height: 1.41176471;
+  font-size: 34rpx;
+  transform: translateY(0);
+  transition: 0.3s;
+  width: 100%;
+  height: 60rpx;
+  margin: 20rpx 30rpx 20rpx 0;
+  display: flex;
+  align-items: left;
+}
+
+.details::before {
+  content: " ";
+  position: absolute;
+  left: 20rpx;
+  top: 20rpx;
+  right: 30rpx;
+  height: 1px;
+  border-top: 1rpx solid #d8d8d8;
+  color: #d8d8d8;
+}
+
+.details::after {
+  content: " ";
+  position: absolute;
+  left: 20rpx;
+  top: 80rpx;
+  right: 30rpx;
+  height: 1px;
+  border-top: 1rpx solid #d8d8d8;
+  color: #d8d8d8;
+}
+
+.details_text {
+  flex: 1;
+  padding: 35rpx 0 0 20rpx;
+  text-align: left;
+  font-size: 24rpx;
+  color: black;
+  font-weight: 400;
+}
+
+.navigator-arrow {
+  padding: 30rpx 0 0 20rpx;
+  position: relative;
+}
+
+.navigator-arrow:after {
+  content: " ";
+  display: inline-block;
+  height: 18rpx;
+  width: 18rpx;
+  border-width: 2rpx 2rpx 0 0;
+  border-color: #888;
+  border-style: solid;
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  position: absolute;
+  top: 40rpx;
+  right: 50rpx;
+}
+
+.table-item-hide {
+  display: none;
+}
+
+.table-item-show {
+  display: block;
+}
+
+.table {
+  margin: 10rpx 30rpx 0 20rpx;
+  border: 1px solid #dadada;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.tr {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.td {
+  padding: 10px;
+  border-bottom: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+  text-align: left;
+  font-size: 20rpx;
+  width: 100%;
+}
+
+
+/*底部购物车栏*/
+
+.bottom_item_wrap {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 0;
+}
+
+.bottom_item {
+  display: flex;
+}
+
+.bottom_item>view {
+  background-color: #666;
+  color: #fff;
+}
+
+.bottom_item .bottom_item_right {
+  flex: 1;
+  font-size: 20px;
+  line-height: 60px;
+  text-align: center;
+  display: flex;
+}
+
+.bottom_item .bottom_item_right>view {
+  width: 50%;
+  background-color: #ff6662;
+}
+
+.bottom_item .bottom_item_right .buy_btn {
+  background-color: #666;
+}
+
+.add_item_show {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.add_item_show .buy_cont {
+  background-color: #fff;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.add_item_show .shopcar {
+  height: 120px;
+  padding: 10px;
+}
+
+.add_item_show .shopcar>view {
+  height: 60px;
+}
+
+.add_item_show .shopcar_top {
+  position: relative;
+  border-bottom: 1px solid #f3f3f3;
+}
+
+.add_item_show .shopcar_top>view {
+  float: left;
+}
+
+.add_item_show .pro_pic {
+  position: relative;
+  top: -30px;
+  width: 60px;
+  height: 60px;
+}
+
+.add_item_show .pro_pic image {
+  width: 100%;
+  height: 100%;
+}
+
+.add_item_show .shopcar_top .close {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  color: #ccc;
+  top: 0px;
+  right: 0px;
+}
+
+.add_item_show .shopcar_top .amount {
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.add_item_show .shopcar_top .price {
+  font-size: 36rpx;
+  color: #ff6662;
+}
+
+.add_item_show .shopcar .num {
+  font-size: 12px;
+  color: #333;
+  /*display: flex;*/
+}
+
+.add_item_show .shopcar .num>view {
+  margin-top: 20px;
+}
+
+.add_item_show .shopcar .num .sl {
+  float: left;
+}
+
+.add_item_show .shopcar .num .buynum {
+  display: flex;
+  height: 40rpx;
+  width: 40%;
+  text-align: center;
+  line-height: 40rpx;
+  border: 1rpx solid #f3f3f3;
+  float: right;
+}
+
+.add_item_show .shopcar .num .buynum .nownum {
+  flex: 1;
+  border-left: 1rpx solid #f3f3f3;
+  border-right: 1rpx solid #f3f3f3;
+}
+
+.add_item_show .shopcar .num .disnum, .add_item_show .shopcar .num .addnum {
+  width: 40rpx;
+}
+
+.add_item_show .buy_cont .true_btn {
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  background-color: #ff6662;
+  color: #fff;
+}
