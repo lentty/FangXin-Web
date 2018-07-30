@@ -1,5 +1,5 @@
 //index.js
-//获取应用实例
+//获取应用实例   
 var app = getApp()
 Page({
   data: {
@@ -18,21 +18,37 @@ Page({
     var that = this;
     wx.request({
       method: 'GET',
-      url: "http://localhost:8080/product/promotedImages",
+      url: app.globalData.host + "product/promotedImages",
       success: function (res) {
-        console.log('promotedImages' + res.data);
+        var images = res.data;
+        if(images.length!=0){
+          for (var i = 0; i < images.length; i++) {
+            images[i].fileLocation = app.globalData.host + images[i].fileLocation;
+          }
+        }else{
+          images = [];
+          var image = { fileLocation: '/images/defaultProduct.gif' };
+          images.push(image);
+        }
         that.setData({
-          promotedIamges: res.data
+          promotedIamges: images
         })
       }
     });
     wx.request({
       method: 'GET',
-      url: "http://localhost:8080/product/promoted",
+      url: app.globalData.host + "product/promoted",
       success: function (res) {
-        console.log('promoted' + res.data);
+        var productList = res.data;
+        for (var i = 0; i < productList.length; i++) {
+          if (productList[i].imageSrc) {
+            productList[i].imageSrc = app.globalData.host + productList[i].imageSrc;
+          } else {
+            productList[i].imageSrc = '/images/defaultCate.jpeg';
+          }
+        }
         that.setData({
-          promotedProducts: res.data
+          promotedProducts: productList
         })
       }
     });

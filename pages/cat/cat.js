@@ -11,12 +11,25 @@ Page({
   onLoad: function () {
     var that = this;
     wx.request({
-      url: 'http://localhost:8080/brand/list',
+      url: app.data.host + 'brand/list',
       method: 'GET',
       success: function (res) {
         console.log(res.data);
+        var brandList = res.data;
+        for(var i=0; i< brandList.length; i++){
+          var catelist = brandList[i].cateList;
+          if(catelist){
+            for (var j = 0; j < catelist.length; j++){
+              if (catelist[j].imageSrc){
+                catelist[j].imageSrc = app.globalData.host + catelist[j].imageSrc;
+              }else{
+                catelist[j].imageSrc = '/images/defaultCate.jpeg';
+              }
+            }
+          }
+        }
           that.setData({
-            brands: res.data,
+            brands: brandList,
           });
       }
     });

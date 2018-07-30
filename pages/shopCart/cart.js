@@ -13,7 +13,7 @@ Page({
   loadProducts: function(){
     var that = this;
     wx.request({
-      url: 'http://localhost:8080/shoppingCart/list/1',
+      url: app.data.host + 'shoppingCart/list/1',
       method: 'GET',
       success: function (res) {
         console.log(res.data);
@@ -98,7 +98,7 @@ Page({
     var itemId = parseInt(e.currentTarget.dataset.id);
     var list = this.data.shoppingList;
     wx.request({
-      url: 'http://localhost:8080/shoppingCart/' + itemId,
+      url: app.data.host +'shoppingCart/' + itemId,
       method: 'DELETE',
       success: function (res) {
         console.log('res' + res.data);

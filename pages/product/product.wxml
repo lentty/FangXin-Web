@@ -6,7 +6,7 @@
 	<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="banner">
 		<block wx:for="{{product.images}}">
 			<swiper-item>
-				<image src="{{item.src}}"/>
+				<image src="{{item.fileLocation}}"/>
 			</swiper-item>
 		</block>
 	</swiper><!-- 轮播图片end -->	

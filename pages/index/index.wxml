@@ -14,7 +14,7 @@
       <block wx:for="{{promotedIamges}}">
          <navigator url="../product/product?productId={{item.productId}}">
            <swiper-item>
-             <image src="{{item.src}}"/>
+             <image src="{{item.fileLocation}}"/>
            </swiper-item>
         </navigator>
       </block>

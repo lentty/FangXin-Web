@@ -21,10 +21,18 @@ Page({
   getDataByCatId: function(cat_id){
     var that = this;
     wx.request({
-      url: 'http://localhost:8080/product/list/' + cat_id,
+      url: app.data.host+'product/list/' + cat_id,
       method: 'GET',
       success: function (res) {
         console.log(res.data);
+        var productList = res.data;
+        for (var i = 0; i < productList.length; i++) {
+          if (productList[i].imageSrc) {
+            productList[i].imageSrc = app.globalData.host + productList[i].imageSrc;
+          }else {
+            productList[i].imageSrc = '/images/defaultCate.jpeg';
+          }
+        }
         that.setData({
           products: res.data,
         });
@@ -44,7 +52,7 @@ Page({
   searchDataByKey: function(searchKey){
     var that = this;
     wx.request({
-      url: 'http://localhost:8080/product/search/'+ searchKey,
+      url: app.data.host + 'product/search/'+ searchKey,
       method: 'GET',
       header: {
         'Content-Type': 'application/x-www-form-urlencoded'

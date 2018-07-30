@@ -13,12 +13,24 @@ Page({
     var product_id = options.productId;
     var that = this;
     wx.request({
-      url: 'http://localhost:8080/product/' + product_id,
+      url: app.data.host+ 'product/' + product_id,
       method: 'GET',
       success: function (res) {
-        console.log(res.data);
+        console.log(res.data.object);
+        var productObject = res.data.object;
+        if(productObject.images.length != 0){
+          for (var i = 0; i < productObject.images.length; i++){
+            var image = productObject.images[i];
+            if(image.fileLocation){
+              image.fileLocation = app.globalData.host + image.fileLocation;
+            }
+          }
+        }else{
+          var image = { fileLocation: '/images/defaultProduct.gif'};
+          productObject.images.push(image);
+        }
         that.setData({
-          product: res.data,
+          product: productObject,
         });
       }
     });
@@ -45,7 +57,7 @@ Page({
     var that = this;
     console.log(that.data);
     wx.request({
-      url: 'http://localhost:8080/shoppingCart', 
+      url: app.data.host+'shoppingCart', 
       method: 'POST',
       data: {
         userId: that.data.userId,

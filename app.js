@@ -1,5 +1,13 @@
 //app.js
 App({
+  globalData: {
+    host: "https://www.fangxincq.com/"
+    //host: "http://localhost:8080/"
+  },
+  data: {
+    host: "https://www.fangxincq.com/"
+    //host: "http://localhost:8080/"
+  },    
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
@@ -32,8 +40,5 @@ App({
         }
       }
     })
-  },
-  globalData: {
-    userInfo: null
   }
 })
