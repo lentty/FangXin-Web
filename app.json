@@ -4,9 +4,7 @@
     "pages/product/product",
     "pages/cat/cat",
     "pages/list/list",
-    "pages/shopCart/cart",
-    "pages/home/home",
-    "pages/logs/logs"
+    "pages/shopCart/cart"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -37,12 +35,6 @@
         "text": "购物车",
         "iconPath": "images/bot_shoppingcar.png",
         "selectedIconPath": "images/bot_shoppingcar02.png"
-      },
-      {
-        "pagePath": "pages/home/home",
-        "text": "个人中心",
-        "iconPath": "images/bot_grzx.png",
-        "selectedIconPath": "images/bot_grzx02.png"
       }
     ]
   }

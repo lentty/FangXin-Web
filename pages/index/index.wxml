@@ -1,15 +1,51 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+          <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+            <icon type="clear" size="14"></icon>
+          </view>
+        </view>
+        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+          <icon class="weui-icon-search" type="search" size="14"></icon>
+          <view class="weui-search-bar__text">搜索</view>
+        </label>
+      </view>
+      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+    </view>
+    <view class="weui-grids">
+      <block wx:for="{{grids}}" wx:key="*this">
+        <navigator url="" class="weui-grid" hover-class="weui-grid_active">
+          <image class="weui-grid__icon" src="../images/icon_tabbar.png" />
+          <view class="weui-grid__label">Grid</view>
+        </navigator>
+      </block>
+    </view>
+    <view class="product-grids">
+      <block wx:for="{{products}}" wx:key="*this">
+        <navigator url="" class="product-grid" hover-class="weui-grid_active">
+          <image class="product-grid__icon" src="../images/icon_tabbar.png" />
+          <view class="product-grid__label">Grid</view>
+        </navigator>
+      </block>
+    </view>
+  </view>
+</view>
 
-<!--index.wxml-->
-<view class="container">
+
+
+
+<!--view class="container">
   <scroll-view scroll-y="true" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" 
   scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" class="scrollStyle"> 
-    <!--顶部搜索-->
     <view class="top">
       <input type="text" placeholder="输入关键字搜索商品" placeholder-style="font-size:70%" auto-focus focus="{{focus}}" value="{{searchValue}}"
         bindinput="searchValueInput"/>
       <view class="search_btn" bindtap="doSearch"><image src="../../images/home_top_search@2x.png"></image></view>
     </view>
-    <!-- 轮播图片 -->
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="banner">
       <block wx:for="{{promotedIamges}}">
          <navigator url="../product/product?productId={{item.productId}}">
@@ -18,8 +54,7 @@
            </swiper-item>
         </navigator>
       </block>
-    </swiper>
-    <!-- 轮播图片end -->	  
+    </swiper> 
     <view class="down">
       <view class="down_title"><text>热销商品</text></view>
       <view  wx:for="{{promotedProducts}}" data-index="{{index}}" data-id="{{item.id}}" class="list">
@@ -42,4 +77,4 @@
       </view>
     </view>
   </scroll-view>
-</view>
+</view-->

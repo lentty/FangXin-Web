@@ -6,10 +6,35 @@ Page({
     promotedIamges: [],
     promotedProducts: [],
     searchValue:'',
-    focus: true
+    focus: true,
+    inputShowed: false,
+    inputVal: "",
+    grids: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    products: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
   },
   onLoad: function () {
     this.loadProducts();
+  },
+  showInput: function () {
+    this.setData({
+      inputShowed: true
+    });
+  },
+  hideInput: function () {
+    this.setData({
+      inputVal: "",
+      inputShowed: false
+    });
+  },
+  clearInput: function () {
+    this.setData({
+      inputVal: ""
+    });
+  },
+  inputTyping: function (e) {
+    this.setData({
+      inputVal: e.detail.value
+    });
   },
   onShow: function(){
     this.loadProducts();
