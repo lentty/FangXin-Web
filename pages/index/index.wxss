@@ -19,6 +19,7 @@
 
 
 .weui-grid {
+  background-color: #FFFFFF;
   position: relative;
   float: left;
   padding: 20px 10px;
@@ -52,10 +53,17 @@
 }
 
 .product-grids {
-  margin-top: 60rpx;
+  background-color: #FFFFFF;
+  margin-top: 20rpx;
   border-top: 1rpx solid #d9d9d9;
   border-left: 1rpx solid #d9d9d9;
   overflow: hidden;
+}
+
+.grids-text{
+   margin-left: 20rpx;
+   font-weight: 500; 
+   font-size: 18px;
 }
 
 

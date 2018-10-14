@@ -25,6 +25,7 @@
       </block>
     </view>
     <view class="product-grids">
+      <text class="grids-text">特价商品</text>
       <block wx:for="{{products}}" wx:key="*this">
         <navigator url="" class="product-grid" hover-class="weui-grid_active">
           <image class="product-grid__icon" src="../images/icon_tabbar.png" />
