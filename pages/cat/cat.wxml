@@ -19,10 +19,10 @@
     <scroll-view scroll-x="true" class='brands'>
       <view wx:for="{{brands}}" class="brands-items {{curNav == item.id ? 'active' : ''}}" bindtap="switchTab" data-index="{{index}}" data-id="{{item.id}}">{{item.name}}</view>
     </scroll-view>
-    <scroll-view scroll-y="true" class=''>
-      <view wx:if="{{brands[curIndex].cateList.length > 0}}" class="weui-panel weui-panel_access">
-        <view wx:for="{{brands}}" class="weui-panel__bd">
-          <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+    <scroll-view scroll-y="true" wx:if="{{brands[curIndex].cateList.length > 0}}" class=''>
+      <view class="weui-panel weui-panel_access" >
+        <view class="weui-panel__bd">
+          <navigator wx:for="{{brands}}" url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
             <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
               <image class="weui-media-box__thumb" src="../../../images/defaultCate.jpeg"></image>
             </view>
@@ -32,8 +32,7 @@
           </navigator>
         </view>
       </view>
-     <view class="nodata_text" wx:else>该品牌暂无数据</view>
     </scroll-view>
-
+    <view class="nodata_text" wx:else>该品牌暂无数据</view>
   </view>
 </view>

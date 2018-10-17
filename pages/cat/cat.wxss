@@ -110,17 +110,28 @@ page {
 .brands-items {
   display: inline-block;
   /*再设上下padding增加高度，总高42px*/  
-  margin: 2px 2px;  
-  padding: 4px 4px;  
+  margin: 0px 4px 4px 4px;  
+  padding: 0px 4px 4px 4px;  
   /*文字14px*/  
   font-size: 14px; 
-  border-radius: 4px;
-
 }
 
 .brands-items.active{  
   /*背景色变成白色*/  
-  background-color: #ececec;  
-  color:red; 
+  color:#66CCCC; 
   font-weight: bold;
+  font-size: larger;
 } 
+
+.page__bd{
+  background-color: #fff;
+}
+
+.weui-search-bar{
+  background-color: #fff;
+  border: none;
+}
+
+.weui-search-bar .weui-search-bar__form{
+  background-color: #ececec;  
+}
