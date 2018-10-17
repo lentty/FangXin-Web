@@ -7,16 +7,17 @@
 .searchbar-result:before{
     display: none;
 }
+
 .weui-cell{
     padding: 12px 15px 12px 35px;
 }
 
 .weui-grids {
   background-color: #FFFFFF;
-  border-top: 1rpx solid #d9d9d9;
-  border-left: 1rpx solid #d9d9d9;
+  /* border-top: 1rpx solid #d9d9d9;
+  border-left: 1rpx solid #d9d9d9; */
+  border: none;
   overflow: hidden;
-  padding-top: 10px;
 }
 
 

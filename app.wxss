@@ -35,6 +35,20 @@ page{
     font-size: 14px;
 }
 
+.weui-search-bar{
+  background-color: #FFFFFF;
+  border: none;
+}
+
+.weui-search-bar__form{
+  border-radius: 25px;
+}
+
+.weui-search-bar__label {
+   background: #F5F5F5;
+  border-radius: 25px;
+}
+
 /* page{ 
    background: #fff;  font-family: '微软雅黑'
    }

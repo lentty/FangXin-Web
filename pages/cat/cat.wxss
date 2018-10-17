@@ -127,15 +127,6 @@ page {
   background-color: #fff;
 }
 
-.weui-search-bar{
-  background-color: #fff;
-  border: none;
-}
-
-.weui-search-bar .weui-search-bar__form{
-  background-color: #ececec;  
-}
-
 .weui-media-box__title {
   font-size: 14px;
   position: absolute;
