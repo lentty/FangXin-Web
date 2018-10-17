@@ -1,32 +1,39 @@
-<!--主盒子-->
-<view class="container">
-  <view class="top">
-		<input type="text" placeholder="输入关键字搜索商品" placeholder-style="font-size:70%" auto-focus focus="{{focus}}" value="{{searchValue}}"
-        bindinput="searchValueInput"/>
-    <view class="search_btn" bindtap="doSearch"><image src="../../images/home_top_search@2x.png"></image></view>
-	</view>
-  <!--左侧栏-->
-  <scroll-view scroll-y="true" style="height: 1200rpx;"bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" 
-  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" class="nav_left">
-      <!--当前项的id等于item项的id，那个就是当前状态-->
-      <!--用data-index记录这个数据在数组的下标位置，使用data-id设置每个item的id值，供打开2级页面使用-->
-      <view wx:for="{{brands}}" class="nav_item {{curNav == item.id ? 'active' : ''}}" bindtap="switchTab" data-index="{{index}}" data-id="{{item.id}}">
-           {{item.name}}     
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input type="text" class="weui-search-bar__input" placeholder="输入关键字搜索商品" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+          <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+            <icon type="clear" size="14"></icon>
+          </view>
+        </view>
+        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+          <icon class="weui-icon-search" type="search" size="14" bindtap='doSearch'></icon>
+          <view class="weui-search-bar__text">输入关键字搜索商品</view>
+        </label>
       </view>
-  </scroll-view>
-  <!--右侧栏-->
-  <scroll-view scroll-y="true" style="height: 1200rpx;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" class="nav_right">
-    <!--如果有数据，才遍历项-->
-    <view wx:if="{{brands[curIndex].cateList.length > 0}}">
-        <view wx:for="{{brands[curIndex].cateList}}" class="nav_right_items">
-        <!--界面跳转 -->
-          <navigator url="../list/list?cat_id={{item.id}}">
-            <image src="{{item.imageSrc}}"></image>
-            <text>{{item.name}}</text>
+      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+    </view>
+    <scroll-view scroll-x="true" class='brands'>
+      <view wx:for="{{brands}}" class="brands-items {{curNav == item.id ? 'active' : ''}}" bindtap="switchTab" data-index="{{index}}" data-id="{{item.id}}">{{item.name}}</view>
+    </scroll-view>
+    <scroll-view scroll-y="true" class=''>
+      <view wx:if="{{brands[curIndex].cateList.length > 0}}" class="weui-panel weui-panel_access">
+        <view wx:for="{{brands}}" class="weui-panel__bd">
+          <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+              <image class="weui-media-box__thumb" src="../../../images/defaultCate.jpeg"></image>
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+              <view class="weui-media-box__desc">item desc</view>
+            </view>
           </navigator>
         </view>
-    </view>
-    <!--如果无数据，则显示数据-->
-    <view class="nodata_text" wx:else>该品牌暂无数据</view>
-  </scroll-view>
+      </view>
+     <view class="nodata_text" wx:else>该品牌暂无数据</view>
+    </scroll-view>
+
+  </view>
 </view>

@@ -1,5 +1,7 @@
 page {
   background: #f5f5f5;
+  width: 100%;  
+  height: 100%;  
 }
 /*总体主盒子*/  
 .container {   
@@ -33,18 +35,6 @@ page {
 	text-align: center;
 }
 
- /*左侧栏主盒子*/  
-.nav_left {  
-  position: absolute;
-  /*设置行内块级元素（没使用定位）*/   
-  display: block;  
-  left: 0;
-  top: 55px;
-  width: 25%;  
-  /*主盒子设置背景色为灰色*/  
-  background: #E0E0E0;  
-  text-align: center;  
-}  
 /*左侧栏list的item*/  
 .nav_left .nav_item {  
   /*每个高30px*/  
@@ -112,6 +102,25 @@ page {
   text-align: center;  
 } 
 
+.brands {
+ white-space: nowrap; 
+ display: flex
+}
 
+.brands-items {
+  display: inline-block;
+  /*再设上下padding增加高度，总高42px*/  
+  margin: 2px 2px;  
+  padding: 4px 4px;  
+  /*文字14px*/  
+  font-size: 14px; 
+  border-radius: 4px;
 
+}
 
+.brands-items.active{  
+  /*背景色变成白色*/  
+  background-color: #ececec;  
+  color:red; 
+  font-weight: bold;
+} 

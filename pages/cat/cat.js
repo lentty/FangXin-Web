@@ -5,7 +5,10 @@ Page({
      brands: [],
      curNav: 1,
      curIndex: 0,
-     searchValue: ''
+     searchValue: '',
+     focus: true,
+     inputShowed: false,
+     inputVal: ""
   },
 
   onLoad: function () {
@@ -44,6 +47,27 @@ Page({
       curNav: id,
       curIndex: index
     })
+  },
+  showInput: function () {
+    this.setData({
+      inputShowed: true
+    });
+  },
+  hideInput: function () {
+    this.setData({
+      inputVal: "",
+      inputShowed: false
+    });
+  },
+  clearInput: function () {
+    this.setData({
+      inputVal: ""
+    });
+  },
+  inputTyping: function (e) {
+    this.setData({
+      inputVal: e.detail.value
+    });
   },
   searchValueInput: function (e) {
     var value = e.detail.value;
