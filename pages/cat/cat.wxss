@@ -120,7 +120,7 @@ page {
   /*背景色变成白色*/  
   color:#66CCCC; 
   font-weight: bold;
-  font-size: larger;
+  font-size: 16px;
 } 
 
 .page__bd{
@@ -134,4 +134,42 @@ page {
 
 .weui-search-bar .weui-search-bar__form{
   background-color: #ececec;  
+}
+
+.weui-media-box__title {
+  font-size: 14px;
+  position: absolute;
+  top: 0px;
+  padding: 15px 0px;
+}
+
+.item_spec_block{
+  position: relative;
+  top: 0px;
+  padding:5px 0px;
+}
+
+.item_spec {
+  font-size: 12px;
+  border: 1px solid;
+  padding: 3px;
+  border-radius: 5px;
+}
+
+.item_price_block {
+  position: absolute;
+  bottom: 0px;
+  padding:15px 0px;
+}
+
+.item_price {
+  color:#f0145a;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.weui-media-box__hd_in-appmsg {
+  width: 100px;
+  height: 100px;
+  padding: 0px 10px;
 }
