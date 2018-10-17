@@ -12,9 +12,11 @@ Page({
     grids: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
     products: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
   },
+
   onLoad: function () {
     this.loadProducts();
   },
+
   showInput: function () {
     this.setData({
       inputShowed: true
@@ -37,7 +39,7 @@ Page({
     });
   },
   onShow: function(){
-    this.loadProducts();
+    //this.loadProducts();
   },
   loadProducts: function(){
     var that = this;
@@ -69,7 +71,7 @@ Page({
           if (productList[i].imageSrc) {
             productList[i].imageSrc = app.globalData.host + productList[i].imageSrc;
           } else {
-            productList[i].imageSrc = '/images/defaultCate.jpeg';
+            productList[i].imageSrc = '/images/test.jpg';
           }
         }
         that.setData({
