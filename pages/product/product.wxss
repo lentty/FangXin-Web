@@ -21,7 +21,7 @@
   background-color: #fff;
 }
 
-swiper {
+.swiper-block {
   background: #fff;
   color: #fff;
   background-color: #fff;
@@ -330,10 +330,12 @@ swiper {
   color: #000;
 }
 .product_detail_title {
-  color: #000;
+  display: inline-block;
+  font-size: 12px;
+  width: 40px;
 }
 
 .product_detail_info {
-  color: #000;
   padding: 10px 40px;
+  font-size: 12px;
 }
