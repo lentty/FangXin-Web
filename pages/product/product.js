@@ -6,7 +6,8 @@ Page({
     isOpen: false,
     isShow: false,
     buynum: 1,
-    userId: 1
+    userId: 1,
+    indicatorDots: true
   },
 
   onLoad: function (options) {
@@ -26,7 +27,7 @@ Page({
             }
           }
         }else{
-          var image = { fileLocation: '/images/defaultProduct.gif'};
+          var image = { fileLocation: 'images/defaultProduct.jpeg'};
           productObject.images.push(image);
         }
         that.setData({

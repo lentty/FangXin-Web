@@ -3,6 +3,8 @@
   width: 100%;
 }
 
+
+
 .scrollStyle{
   position: absolute;
   width: 100%;
@@ -12,8 +14,17 @@
 
 .banner {
   margin: auto;
-  width: 100%;
-  height: 700rpx;
+  width: 600rpx;
+  height: 600rpx;
+  background: #fff;
+  color: #fff;
+  background-color: #fff;
+}
+
+swiper {
+  background: #fff;
+  color: #fff;
+  background-color: #fff;
 }
 
 .banner image {
@@ -289,4 +300,40 @@
   font-size: 14px;
   background-color: #ff6662;
   color: #fff;
+}
+
+.item_price_block {
+  padding:0px 10px 10px 10px;
+}
+
+.item_price {
+  color:#f0145a;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 10px 0px;
+}
+
+.weui-media-box__hd_in-appmsg {
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+}
+
+
+.weui-media-box__title {
+  font-size: 14px;
+  padding: 10px;
+}
+
+.weui-panel__hd {
+  font-size: 14px;
+  color: #000;
+}
+.product_detail_title {
+  color: #000;
+}
+
+.product_detail_info {
+  color: #000;
+  padding: 10px 40px;
 }
