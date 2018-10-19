@@ -21,7 +21,7 @@
         </view>
       </view>
     </view>
-    <view class="weui-panel weui-panel_access">
+    <view class="weui-panel weui-panel_access panel_detail">
       <view class="weui-panel__hd">商品参数</view>
       <view class="weui-panel__bd">
         <view class="weui-media-box weui-media-box_text">
@@ -39,19 +39,49 @@
         <view class="weui-media-box weui-media-box_text">
           <view class="weui-media-box__desc">
             <text class="product_detail_title">产地</text>
-            <text class="product_detail_info">{{product.origin}}</text>
+            <text wx:if="{{product.period}}" class="product_detail_info">{{product.origin}}</text>
+            <text wx:else class="product_detail_info">暂无数据</text>
           </view>
         </view>
         <view class="weui-media-box weui-media-box_text">
           <view class="weui-media-box__desc">
             <text class="product_detail_title">保质期</text>
-            <text class="product_detail_info">{{product.period}}</text>
+            <text wx:if="{{product.period}}" class="product_detail_info">{{product.period}}</text>
+            <text wx:else class="product_detail_info">暂无数据</text>
           </view>
         </view>
       </view>
     </view>
+    <block wx:if="{{isShow}}">
+		<view class="add_item_show">
+			<view class="buy_cont">
+				<view class="shopcar">
+					<view class="shopcar_top">
+						<view class="pro_pic">
+							<image src="{{product.images[0].fileLocation}}"/>
+						</view>
+						<view class="kucun">
+							<view class="introPrice">¥ {{product.retailPrice}}</view>
+							<view class="amount">库存{{product.amount}}件</view>
+						</view>
+						<view class="close" bindtap="isClose">×</view>
+					</view>
+					<view class="num">
+						<view class="sl">数量：</view>
+						<view class="buynum">
+				            <view class="disnum" data-alpha-beta="0" bindtap="changeNum">-</view>
+				            <view class="nownum">{{buynum}}</view>
+				            <view class="addnum" data-alpha-beta="1" bindtap="changeNum">+</view>
+				          </view>
+					</view>
+				</view>
+				<view class="true_btn" bindtap="toastTap">确认</view>
+			</view>
+		</view>
+	</block>
   </view>
-  <view class="weui-footer weui-footer_fixed-bottom">
-
-  </view>
+  <view class="detail-nav">
+  <image bindtap="toCar" src="../../images/bot_shoppingcar.png" />
+  <button class="button-green" bindtap="isShow" formType="submit">加入购物车</button>
+</view>
 </view>

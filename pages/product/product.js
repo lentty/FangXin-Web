@@ -98,5 +98,12 @@ Page({
         buynum: this.data.buynum + 1
       })
     };
-  }
+  },
+
+   // 跳到购物车
+  toCar: function() {
+    wx.switchTab({
+      url: '/pages/shopCart/cart'
+    })
+  },
 })
