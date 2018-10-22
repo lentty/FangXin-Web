@@ -394,8 +394,8 @@ button {
   line-height: 100rpx;
 }
 .detail-nav image {
-  width: 70rpx;
-  height: 70rpx;
+  width: 60rpx;
+  height: 60rpx;
   margin: 20rpx 20rpx;
 }
 .line_nav {

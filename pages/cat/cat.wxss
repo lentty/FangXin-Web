@@ -118,7 +118,7 @@ page {
 
 .brands-items.active{  
   /*背景色变成白色*/  
-  color:#66CCCC; 
+  color:#4caf50; 
   font-weight: bold;
   font-size: 16px;
 } 
