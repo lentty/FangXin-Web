@@ -27,7 +27,7 @@
     <view class="weui-panel weui-panel_access">
       <view class="weui-panel__hd">特价商品</view>
       <view class="weui-panel__bd">
-        <navigator wx:for="{{promotedProducts}}" wx:key="id" url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        <navigator wx:for="{{promotedProducts}}" wx:key="id" url="../product/product?productId={{item.id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
             <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
               <image class="weui-media-box__thumb" src="{{item.imageSrc}}"></image>
             </view>
