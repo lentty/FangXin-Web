@@ -11,7 +11,7 @@
 .weui-panel__bd{
     display: flex;
     padding: 20rpx 0;
-    font-size: 30rpx;
+    font-size: 14px;
     border-top: 1rpx solid #f3f3f3;
 }
 
