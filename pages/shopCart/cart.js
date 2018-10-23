@@ -24,7 +24,7 @@ Page({
       }
     });
   },
-  bindCheckbox: function (e) {
+  switchSelect: function (e) {
     var index = parseInt(e.currentTarget.dataset.index);
     //原始的icon状态
     var selected = this.data.shoppingList[index].selected;
@@ -40,7 +40,7 @@ Page({
       }
     }
     this.setData({
-      shoppinglist: list,
+      shoppingList: list,
       isSelectAll: selectedAllStatus,
     });
     this.sum();
