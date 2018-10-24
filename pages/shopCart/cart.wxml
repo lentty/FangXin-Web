@@ -25,8 +25,10 @@
         <text class="total_price">合计: </text>
         <text class="price">¥ {{total}}</text>
         </view>
+        <view class="button_group">
         <button class="button-red" bindtap="deleteCartItem" formType="submit">删除</button>
         <button class="button-green" bindtap="accountOrder" formType="submit">结算</button>
+        </view>
       </view>
     </view>
   </view>
