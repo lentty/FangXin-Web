@@ -51,7 +51,7 @@ Page({
     // 计算总金额
     var totalMoney = 0;
     var buttonDisabled = false;
-    if (list.length === 0){
+    if (list.length === 0) {
       buttonDisabled = true;
     }
     for (var i = 0; i < list.length; i++) {
@@ -104,28 +104,15 @@ Page({
     });
     this.sum();
   },
-  bindDelete: function(e) {
+  bindDelete: function(itemId) {
     var that = this;
-    var itemId = parseInt(e.currentTarget.dataset.id);
+    //var itemId = parseInt(e.currentTarget.dataset.id);
     var list = this.data.shoppingList;
     wx.request({
       url: app.data.host + 'shoppingCart/' + itemId,
       method: 'DELETE',
       success: function(res) {
         console.log('res' + res.data);
-        if (res.data) {
-          var newList = [];
-          for (var i = 0; i < list.length; i++) {
-            if (itemId != list[i].id) {
-              newList.push(list[i]);
-            }
-          }
-          console.log('new list' + newList);
-          that.setData({
-            shoppingList: newList
-          });
-          that.sum();
-        }
       }
     });
   },
@@ -143,25 +130,63 @@ Page({
   accountOrder: function() {
     wx.showModal({
       title: '提示',
-      content: '请拨打电话确认订单123456789',
+      content: 'App价格为零售价, 购买和咨询团购价请拨打13101210006, 可以享受更多优惠哦！配送限重庆地区',
     })
   },
 
   deleteCartItem: function() {
+    var that = this;
     wx.showModal({
       title: '提示',
       content: '移除所选商品？',
-      success: function (res) {
+      success: function(res) {
         if (res.confirm) {
-          this.batchDelete();
+          that.batchDelete();
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
-      }  
+      }
     })
   },
 
-  batchDelete: {
+  batchDelete: function() {
+    var that=this;
+    var list = this.data.shoppingList;
+    // 计算总金额
+    var newList = [];
+    for (var i = 0; i < list.length; i++) {
+      if (list[i].selected) {
+        this.bindDelete(list[i].id);
+      }else{
+        newList.push(list[i]);
+      }
+    }
+
+    // 写回经点击修改后的数组
+    console.log('new list' + newList);
+    that.setData({
+      shoppingList: newList
+    });
+    this.sum();
+
+  },
+
+  bindSelectAll: function() {
+    // 环境中目前已选状态
+    var selectedAllStatus = this.data.isSelectAll;
+    // 取反操作
+    selectedAllStatus = !selectedAllStatus;
+    // 购物车数据，关键是处理selected值
+    var list = this.data.shoppingList;
+    // 遍历
+    for (var i = 0; i < list.length; i++) {
+      list[i].selected = selectedAllStatus;
+    }
+    this.setData({
+      shoppingList: list,
+      isSelectAll: selectedAllStatus,
+    });
+    this.sum()
 
   }
 
