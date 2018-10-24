@@ -4,7 +4,8 @@ Page({
   data: {
     shoppingList: [],
     total: 0,
-    isSelectAll: true
+    isSelectAll: true,
+    isButtonDisabled: false,
   },
   onLoad: function(options) {
     console.log('on Load');
@@ -49,14 +50,24 @@ Page({
     var list = this.data.shoppingList;
     // 计算总金额
     var totalMoney = 0;
+    var buttonDisabled = false;
+    if (list.length === 0){
+      buttonDisabled = true;
+    }
     for (var i = 0; i < list.length; i++) {
       if (list[i].selected) {
         totalMoney += list[i].amount * list[i].product.retailPrice;
       }
     }
+    console.log("total money:" + totalMoney);
+    if (totalMoney === 0) {
+      console.log("in my method");
+      buttonDisabled = true;
+    }
     // 写回经点击修改后的数组
     this.setData({
-      total: totalMoney.toFixed(2)
+      total: totalMoney.toFixed(2),
+      isButtonDisabled: buttonDisabled
     });
   },
   bindSelectAll: function() {
@@ -151,7 +162,7 @@ Page({
   },
 
   batchDelete: {
-    
+
   }
 
 })

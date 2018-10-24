@@ -26,8 +26,8 @@
         <text class="price">¥ {{total}}</text>
         </view>
         <view class="button_group">
-        <button class="button-red" bindtap="deleteCartItem" formType="submit">删除</button>
-        <button class="button-green" bindtap="accountOrder" formType="submit">结算</button>
+        <button class="button-red {{isButtonDisabled==true? 'disabled': ''}}" bindtap="deleteCartItem" disabled="{{isButtonDisabled}}" formType="submit">删除</button>
+        <button class="button-green {{isButtonDisabled==true? 'disabled': ''}}" bindtap="accountOrder"  disabled="{{isButtonDisabled}}" formType="submit">结算</button>
         </view>
       </view>
     </view>

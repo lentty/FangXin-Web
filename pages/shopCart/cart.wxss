@@ -118,6 +118,7 @@
 .button-red {
   background-color: #f44336; /* 红色 */
 }
+
 .button-green {
   background-color: #4caf50; /* Green */
 }
@@ -128,10 +129,41 @@ button {
   text-decoration: none;
   display: block;
   font-size: 30rpx;
-  border-radius: 0rpx;
+  border-radius: 0px;
   width: 50%;
   height: 100%;
 }
+
+button::after {
+    border-radius: 0;
+}
+
+button.button-red.disabled {
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 30rpx;
+  font-weight: bolder;
+  color: #7a7a7a;
+  border-radius: 0px;
+  width: 50%;
+  height: 100%;
+  background-color: #d8d8d8;
+}
+
+button.button-green.disabled {
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 30rpx;
+  font-weight: bolder;
+  color: #7a7a7a;
+  border-radius: 0px;
+  width: 50%;
+  height: 100%;
+  background-color: #d8d8d8;
+}
+
 
 .footer .total_text{
   padding: 22rpx 10rpx;
