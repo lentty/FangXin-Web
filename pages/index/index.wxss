@@ -12,6 +12,8 @@
     padding: 12px 15px 12px 35px;
 }
 
+
+
 .weui-grids {
   background-color: #FFFFFF;
   /* border-top: 1rpx solid #d9d9d9;
@@ -72,6 +74,40 @@
   width: 100px;
   height: 100px;
   padding: 0px 10px;
+}
+
+.exploreHeader {
+  padding: 10rpx;
+  text-align: center;
+  position:fixed;
+  z-index:99;
+  top:0;
+  left:0;
+  width:100%;
+  background:#FFF;
+}
+
+.weui-search-bar__box {
+  background-color: #ececec;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.exploreHeader .searchInput {
+  height: 60rpx;
+}
+.exploreHeader input {
+  border-radius:35rpx;
+  border:1px solid #CCC;
+  width:90%;
+  margin:0 auto;
+  background: #ececec;
+  color: #000;
+
+}
+
+.page__hd {
+  padding: 20px;
 }
 
 
@@ -221,5 +257,4 @@
   font-size: 16px;
   margin-left: 10px;
 }  */
-
 

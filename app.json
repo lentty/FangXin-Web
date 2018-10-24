@@ -4,7 +4,9 @@
     "pages/product/product",
     "pages/cat/cat",
     "pages/list/list",
+    "pages/searchBar/searchBar",
     "pages/shopCart/cart"
+        
   ],
   "window": {
     "backgroundTextStyle": "light",

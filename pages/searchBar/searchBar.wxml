@@ -1,0 +1,15 @@
+<!--pages/searchBar/searchBar.wxml-->
+<view class='page'>
+<view class='page__bd'>
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14" bindtap='doSearch'></icon>
+          <input type="text" class="weui-search-bar__input" placeholder='输入关键字搜索商品' focus='true' bindinput="inputTyping"/>
+        </view>
+      </view>
+          <button class="search_button" bindtap="doSearch">搜索</button>
+
+    </view>
+    </view>
+    </view>

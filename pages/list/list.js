@@ -9,6 +9,8 @@ Page({
   onLoad: function (options) {
     var cat_id = options.cat_id;
     var searchKey = options.key;
+    console.log("cat id is " + cat_id);
+    console.log("search key is " + searchKey);
     if(cat_id){
       this.getDataByCatId(cat_id);
     }else if(searchKey){
@@ -39,15 +41,11 @@ Page({
       }
     });
   },
-  searchValueInput: function (e) {
-    var value = e.detail.value;
-    this.setData({
-      searchValue: value,
-    });
-  },
-  doSearch: function () {
-    var searchKey = this.data.searchValue;
-    this.searchDataByKey(searchKey);
+  
+  goToSearchPage: function (evt) {
+    wx.navigateTo({
+      url: '../searchBar/searchBar'
+    })
   },
   searchDataByKey: function(searchKey){
     var that = this;

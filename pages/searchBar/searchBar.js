@@ -1,66 +1,60 @@
-//index.js
-//获取应用实例   
+// pages/searchBar/searchBar.js
+
+
 var app = getApp()
 Page({
   data: {
-    promotedIamges: [],
-    promotedProducts: [],
-    searchValue:'',
+    searchValue: '',
     focus: true,
     inputShowed: false,
     inputVal: "",
-    grids: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-    products: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
   },
 
-  onLoad: function () {
+  onLoad: function() {
     this.loadProducts();
   },
 
-  goToSearchPage: function(evt) {
-    wx.navigateTo({
-      url: '../searchBar/searchBar'
-    })
-  },
-
-  showInput: function () {
+  showInput: function() {
     this.setData({
       inputShowed: true
     });
   },
-  hideInput: function () {
+  hideInput: function() {
     this.setData({
       inputVal: "",
       inputShowed: false
     });
   },
-  clearInput: function () {
+  clearInput: function() {
     this.setData({
       inputVal: ""
     });
   },
-  inputTyping: function (e) {
+  inputTyping: function(e) {
+    console.log(e.detail.value);
     this.setData({
       inputVal: e.detail.value
     });
   },
-  onShow: function(){
+  onShow: function() {
     //this.loadProducts();
   },
-  loadProducts: function(){
+  loadProducts: function() {
     var that = this;
     wx.request({
       method: 'GET',
       url: app.globalData.host + "product/promotedImages",
-      success: function (res) {
+      success: function(res) {
         var images = res.data;
-        if(images.length!=0){
+        if (images.length != 0) {
           for (var i = 0; i < images.length; i++) {
             images[i].fileLocation = app.globalData.host + images[i].fileLocation;
           }
-        }else{
+        } else {
           images = [];
-          var image = { fileLocation: '/images/defaultProduct.gif' };
+          var image = {
+            fileLocation: '/images/defaultProduct.gif'
+          };
           images.push(image);
         }
         that.setData({
@@ -71,7 +65,7 @@ Page({
     wx.request({
       method: 'GET',
       url: app.globalData.host + "product/promoted",
-      success: function (res) {
+      success: function(res) {
         var productList = res.data;
         for (var i = 0; i < productList.length; i++) {
           if (productList[i].imageSrc) {
@@ -86,17 +80,12 @@ Page({
       }
     });
   },
-  searchValueInput: function (e) {
-    var value = e.detail.value;
-    this.setData({
-      searchValue: value,
-    });
-  },
-  doSearch: function () {
-    var searchKey = this.data.searchValue;
+
+  doSearch: function() {
+    var searchKey = this.data.inputVal;
     this.searchProductData(searchKey);
   },
-  searchProductData: function (searchKey) {
+  searchProductData: function(searchKey) {
     var that = this;
     wx.navigateTo({
       url: '../list/list?key=' + searchKey
@@ -104,5 +93,3 @@ Page({
   }
 
 })
-
-
