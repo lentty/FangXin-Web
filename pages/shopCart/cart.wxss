@@ -19,8 +19,6 @@
   display: inline-flex;
 }
 
-.msg_right{
-}
 .product_pic{
     width: 200rpx;
     height: 200rpx;
@@ -60,35 +58,20 @@
 }
 
 .footer{
-    display: flex;
+    display: inline-flex;
     text-align: center;
-    padding: 20rpx 20rpx;
+    padding: 0 20rpx;
     background-color: white;
     position: fixed;
     bottom: 0;
     width: 100%;
     color: #7a7a7a;
+    font-size: 12px;
+
 }
-.footer .btn{
-    width: 30%;
-    background-color: grey;
-    text-align: center;
-    color: white;
-    font-size: 40rpx;
-    line-height: 46px;
-    font-weight: 200;
-    /*margin:0 40rpx;*/
-}
-.footer .all_money{
-    flex: 1;
-    font-size: 30rpx;
-}
-.footer .all_money view.yf_msg{
-    line-height: 30px;
-}
-.footer .select_all{
-    font-size: 32rpx;
-    margin-left: 20rpx;
+
+.total_text, .total_price{
+  padding: 0 20rpx;
 }
 
 
@@ -100,19 +83,11 @@
   flex-direction: column;
 }
 .row {
-  display: flex;
+  /*display: flex;*/
   flex-direction: row;
-  align-items: center;
+  border-top-color: #d8d8d8;  /*align-items: center;*/
 }
-.sku {
-  margin-top: 60rpx;
-  margin-left: 100rpx;
-}
-.sku-price {
-  color: red;
-  position: relative;
-  margin-top: 70rpx;
-}
+
 .price {
   color: red;
   position: relative;
@@ -121,11 +96,7 @@
   font-size: 38rpx;
   margin-top: 40rpx;
 }
-.small_text {
-  font-size: 28rpx;
-  margin-right: 40rpx;
-  margin-left: 10rpx;
-}
+
 .item-select {
   width: 40rpx;
   height: 40rpx;
@@ -135,41 +106,54 @@
 .item-allselect {
   width: 40rpx;
   height: 40rpx;
-  background-position: center;
+  margin-top: 22rpx;
   }
 .item-image {
   width: 180rpx;
   height: 180rpx;
   margin: 20rpx;
 }
-.bottom_line {
-  width: 100%;
-  height: 2rpx;
-  background: lightgray;
-}
-.bottom_total {
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  bottom: 0;
-  width: 100%;
-  height: 120rpx;
-  line-height: 120rpx;
-  background: white;
-}
+
+
 .button-red {
   background-color: #f44336; /* 红色 */
+  padding: 0px;
+  margin-left: 40px;
+  
 }
+.button-green {
+  background-color: #4caf50; /* Green */
+}
+
 button {
-  position: fixed;
-  right: 0;
   color: white;
   text-align: center;
+  text-decoration: none;
   display: inline-block;
   font-size: 30rpx;
   border-radius: 0rpx;
-  width: 30%;
-  height: 120rpx;
-  line-height: 120rpx;
+  width: 20%;
+  height: 100%;
+  margin: 0;
 }
 
+.footer .total_text{
+  padding: 22rpx 10rpx;
+}
+
+.footer .total_price {
+  padding: 22rpx 0 22rpx 20rpx;
+}
+
+.total_price_block {
+  padding: 22rpx 0;
+  width: 120px
+}
+
+.footer .price{
+  padding: 22rpx 10rpx;
+}
+
+.footer text{
+  font-weight: bold;
+}
