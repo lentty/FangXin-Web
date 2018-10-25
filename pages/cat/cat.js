@@ -109,5 +109,10 @@ Page({
     wx.navigateTo({
       url: '../list/list?key=' + searchKey
     })
-  }
+  },
+  goToSearchPage: function (evt) {
+    wx.navigateTo({
+      url: '../searchBar/searchBar'
+    })
+  },
 })

@@ -4,17 +4,9 @@
       <view class="weui-search-bar__form">
         <view class="weui-search-bar__box">
           <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-          <input type="text" class="weui-search-bar__input" placeholder="输入关键字搜索商品" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
-          <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
-            <icon type="clear" size="14"></icon>
-          </view>
+          <input type="text" class="weui-search-bar__input" placeholder='输入关键字搜索商品' bindfocus='goToSearchPage'/>
         </view>
-        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
-          <icon class="weui-icon-search" type="search" size="14" bindtap='doSearch'></icon>
-          <view class="weui-search-bar__text">输入关键字搜索商品</view>
-        </label>
       </view>
-      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
     </view>
     <scroll-view scroll-x="true" class='brands'>
       <view wx:for="{{brands}}" class="brands-items {{curNav == item.id ? 'active' : ''}}" bindtap="switchTab" data-index="{{index}}" data-id="{{item.id}}">{{item.name}}</view>
