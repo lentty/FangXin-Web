@@ -8,10 +8,39 @@ Page({
     focus: true,
     inputShowed: false,
     inputVal: "",
+    hotKeyWords: []
   },
 
   onLoad: function() {
-    this.loadProducts();
+    this.loadKeyWords();
+  },
+
+  loadKeyWords: function(){
+    var that = this;
+    wx.request({
+      url: app.data.host + 'brand/list',
+      method: 'GET',
+      success: function (res) {
+        console.log(res.data);
+        var brandList = res.data;
+        var hotKeyWordsList = [];
+        for (var i = 0; i < brandList.length; i++){
+          hotKeyWordsList.push(brandList[i].name);
+        }
+        that.setData({
+          hotKeyWords: hotKeyWordsList,
+        });
+      }
+    });
+  },
+
+  onHotKeywordPress: function(e) {
+    var index = parseInt(e.target.dataset.index);
+    var hotKeyWord = this.data.hotKeyWords[index];
+    console.log("Your select is " + hotKeyWord);
+    this.setData ({
+      inputVal: hotKeyWord
+    })
   },
 
   showInput: function() {

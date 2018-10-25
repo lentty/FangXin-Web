@@ -5,11 +5,18 @@
       <view class="weui-search-bar__form">
         <view class="weui-search-bar__box">
           <icon class="weui-icon-search_in-box" type="search" size="14" bindtap='doSearch'></icon>
-          <input type="text" class="weui-search-bar__input" placeholder='输入关键字搜索商品' focus='true' bindinput="inputTyping"/>
+          <input type="text" class="weui-search-bar__input" placeholder='输入关键字搜索商品' focus='true' bindinput="inputTyping" value='{{inputVal}}'/>
         </view>
       </view>
           <button class="search_button" bindtap="doSearch">搜索</button>
 
     </view>
+    <view class="searchKeywords">
+    <!--hot search-->
+    <view class="hotsearch tagContainer">
+      <view class="title">热门搜索</view>
+      <text class="label" wx:for="{{hotKeyWords}}" bindtap="onHotKeywordPress" data-index="{{index}}">{{item}}</text>
+    </view>
+  </view>
     </view>
     </view>

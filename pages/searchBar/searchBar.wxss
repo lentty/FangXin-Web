@@ -75,27 +75,23 @@ button.search_button{
   margin: 10px 0 0 10px;
 }
 
-.searchSubmit {
-  background: #0076cb;
-  color: #fff;
-}
-.searchResultCount {
-  border-bottom: 1px solid #aaa;
-  margin-bottom: 10rpx;
-  font-size: 28rpx;
-  color: #71777D;
+
+.tagContainer {
+  position: relative;
+  margin-top: 15px;
+  margin-left: 5px;
 }
 
+.tagContainer .title{
+  color: #4caf50;
+}
 
-.result {
-  height: 50px;
-  line-height: 50px;
-  width: 100%;
-  text-align: left;
-  border-bottom: 1px solid #eee;
-  padding-left: 25px;
-  color: #333;
-  font-family: "微软雅黑";
-  font-size: 16px;
+.tagContainer .label{
+  display: inline-flex;
+  font-size: 12px;
+  border: 1px solid #e8e8ed;
+  padding: 3px;
+  margin: 3px;
+  border-radius: 5px;
 }
 
