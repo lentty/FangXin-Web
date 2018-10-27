@@ -3,8 +3,10 @@
     <view class="weui-panel weui-panel_access">
       <view wx:for="{{shoppingList}}" class="cart_item weui-panel__bd">
         <image class="item-select" bindtap="switchSelect" data-index="{{index}}" data-id="{{index}}" src="{{item.selected?'../../images/select_after.png':'../../images/select_before.png'}}"></image>
+        <navigator url="../product/product?productId={{item.product.id}}">
         <image wx:if="{{item.product.images}}" class="product_pic" src="{{item.product.images[0].fileLocation}}"></image>
         <image wx:else class="product_pic" src="../../images/defaultProduct.jpeg"></image>
+        </navigator>
         <view class="msg_right">
           <view class="tit">{{item.product.name}}</view>
           <view class="price">¥ {{item.product.retailPrice}}</view>
@@ -22,14 +24,14 @@
         <image class="item-allselect" bindtap="bindSelectAll" src="{{isSelectAll?'../../images/select_after.png':'../../images/select_before.png'}}"></image>
         <text class="total_text">全选</text>
         <view class="total_price_block">
-        <text class="total_price">合计: </text>
-        <text class="price">¥ {{total}}</text>
+          <text class="total_price">合计: </text>
+          <text class="price">¥ {{total}}</text>
         </view>
         <view class="button_group">
-        <button class="button-red {{isButtonDisabled==true? 'disabled': ''}}" bindtap="deleteCartItem" disabled="{{isButtonDisabled}}" formType="submit">删除</button>
-        <button class="button-green {{isButtonDisabled==true? 'disabled': ''}}" bindtap="accountOrder"  disabled="{{isButtonDisabled}}" formType="submit">结算</button>
+          <button class="button-red {{isButtonDisabled==true? 'disabled': ''}}" bindtap="deleteCartItem" disabled="{{isButtonDisabled}}" formType="submit">删除</button>
+          <button class="button-green {{isButtonDisabled==true? 'disabled': ''}}" bindtap="accountOrder" disabled="{{isButtonDisabled}}" formType="submit">结算</button>
         </view>
       </view>
     </view>
   </view>
-  </view>
+</view>
