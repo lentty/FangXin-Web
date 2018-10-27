@@ -22,8 +22,16 @@
 .product_pic{
     width: 200rpx;
     height: 200rpx;
-    margin: 0 20rpx;
+    margin: 0 0rpx;
 }
+
+navigator {
+  width: 200rpx;
+    height: 200rpx;
+    margin: 0 0rpx;
+}
+
+
 .num{
     display: flex;
     height: 40rpx;
@@ -40,6 +48,11 @@
 .disnum,.addnum{
     width: 40rpx;
 }
+
+.msg_right{
+  margin: 0 15px;
+}
+
 .msg_right .title{
     text-overflow: ellipsis;
     display: -webkit-box;
