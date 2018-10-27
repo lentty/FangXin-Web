@@ -115,6 +115,14 @@ swiper {
   background: #fff;
 }
 
+navigator.weui-grid {
+  background: #fff;
+  color: #fff;
+  background-color: #fff;
+}
+ 
+
+
 
 /* .top {
   position: relative;
