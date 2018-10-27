@@ -110,6 +110,11 @@
   padding: 20px;
 }
 
+swiper {
+  height: 200px;
+  background: #fff;
+}
+
 
 /* .top {
   position: relative;

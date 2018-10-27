@@ -13,6 +13,18 @@ Page({
 
   },
 
+  onShow: function(option){
+    var that = this;
+    console.log(app.globalData.cat_id.target
+    .dataset.key);
+
+    //requert
+    //set app.globalData.cat_id.target.dataset.key == null
+
+    
+
+  },
+
   onLoad: function() {
     var that = this;
     wx.request({

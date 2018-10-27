@@ -9,11 +9,15 @@ Page({
     focus: true,
     inputShowed: false,
     inputVal: "",
-    grids: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    grids: [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9],[0,1,2,3]],
     products: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
   },
 
   onLoad: function () {
+
+    var that = this;
+    console.log("grids length is " + that.data.grids.length);
+
     this.loadProducts();
   },
 
@@ -23,9 +27,10 @@ Page({
     })
   },
 
-  onCatImageClick: function() {
-    wx.navigateTo({
-      url: '../catTwo/cartTwo',
+  onCatImageClick: function(event) {
+    app.globalData.cat_id = event;
+    wx.switchTab({
+      url: '../cat/cat',
     })
   },
 
