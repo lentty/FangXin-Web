@@ -23,6 +23,12 @@ Page({
     })
   },
 
+  onCatImageClick: function() {
+    wx.navigateTo({
+      url: '../catTwo/cartTwo',
+    })
+  },
+
   showInput: function () {
     this.setData({
       inputShowed: true

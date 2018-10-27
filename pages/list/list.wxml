@@ -8,7 +8,7 @@
         </view>
       </view>
     </view>
-    <scroll-view scroll-y="true">
+    <scroll-view scroll-y="true" wx:if="{{products.length > 0}}">
       <view class="weui-panel weui-panel_access">
         <view class="weui-panel__bd">
           <navigator wx:for="{{products}}" url="../product/product?productId={{item.id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
@@ -31,5 +31,6 @@
         </view>
       </view>
     </scroll-view>
+    <view class="nodata_text" wx:else>该品牌暂无数据</view>
   </view>
 </view>

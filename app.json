@@ -5,8 +5,8 @@
     "pages/cat/cat",
     "pages/list/list",
     "pages/searchBar/searchBar",
-    "pages/shopCart/cart"
-        
+    "pages/shopCart/cart",
+    "pages/catTwo/cartTwo"
   ],
   "window": {
     "backgroundTextStyle": "light",
