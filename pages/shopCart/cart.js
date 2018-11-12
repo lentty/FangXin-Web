@@ -16,11 +16,19 @@ Page({
     wx.request({
       url: app.data.host + 'shoppingCart/list/1',
       method: 'GET',
-      success: function(res) {
-        console.log(res.data);
+      success: function (res) {
+        var shoppingList = res.data;
+        for (var i = 0; i < shoppingList.length; i++) {
+          if (shoppingList[i].product.imageSrc) {
+            shoppingList[i].imageSrc = app.globalData.host + shoppingList[i].product.imageSrc;
+          } else {
+            shoppingList[i].imageSrc = '/images/defaultProduct.jpeg';
+          }
+        }
         that.setData({
-          shoppingList: res.data
-        });
+          shoppingList: shoppingList
+        })
+        //console.log(shoppingList);
         that.sum();
       }
     });

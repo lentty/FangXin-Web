@@ -4,8 +4,7 @@
       <view wx:for="{{shoppingList}}" class="cart_item weui-panel__bd">
         <image class="item-select" bindtap="switchSelect" data-index="{{index}}" data-id="{{index}}" src="{{item.selected?'../../images/select_after.png':'../../images/select_before.png'}}"></image>
         <navigator url="../product/product?productId={{item.product.id}}">
-        <image wx:if="{{item.product.images}}" class="product_pic" src="{{item.product.images[0].fileLocation}}"></image>
-        <image wx:else class="product_pic" src="../../images/defaultProduct.jpeg"></image>
+        <image class="product_pic" src="{{item.imageSrc}}"></image>
         </navigator>
         <view class="msg_right">
           <view class="tit">{{item.product.name}}</view>
