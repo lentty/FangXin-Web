@@ -35,8 +35,9 @@ Page({
             productList[i].imageSrc = '/images/defaultCate.jpeg';
           }
         }
+        console.log(productList);
         that.setData({
-          products: res.data,
+          products: productList,
         });
       }
     });
@@ -56,9 +57,18 @@ Page({
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
-        console.log('product'+ res);
+        console.log(res.data);
+        var productList = res.data;
+        for (var i = 0; i < productList.length; i++) {
+          if (productList[i].imageSrc) {
+            productList[i].imageSrc = app.globalData.host + productList[i].imageSrc;
+          } else {
+            productList[i].imageSrc = '/images/defaultCate.jpeg';
+          }
+        }
+        console.log(productList);
         that.setData({
-          products: res.data,
+          products: productList,
         });
       },
       fail: function (e) {

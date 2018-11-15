@@ -71,7 +71,7 @@ Page({
           }
         }else{
           images = [];
-          var image = { fileLocation: '/images/defaultProduct.gif' };
+          var image = { fileLocation: '/images/defaultCate.jpeg' };
           images.push(image);
         }
         that.setData({
@@ -88,7 +88,7 @@ Page({
           if (productList[i].imageSrc) {
             productList[i].imageSrc = app.globalData.host + productList[i].imageSrc;
           } else {
-            productList[i].imageSrc = '/images/test.jpg';
+            productList[i].imageSrc = '/images/defaultCate.jpeg';
           }
         }
         that.setData({

@@ -27,7 +27,7 @@ Page({
             }
           }
         }else{
-          var image = { fileLocation: 'images/defaultProduct.jpeg'};
+          var image = { fileLocation: '/images/defaultCate.jpeg'};
           productObject.images.push(image);
         }
         that.setData({

@@ -9,14 +9,13 @@ Page({
     focus: true,
     inputShowed: false,
     inputVal: "",
-    promotedProducts: [],
+    products: [],
 
   },
 
   onShow: function(option){
-    var that = this;
-    console.log(app.globalData.cat_id.target
-    .dataset.key);
+    //var that = this;
+    //console.log(app.globalData.cat_id.target.dataset.key);
 
     //requert
     //set app.globalData.cat_id.target.dataset.key == null
@@ -54,33 +53,53 @@ Page({
   },
 
   switchTab: function(e) {
+    var that = this;
     // 获取item项的id，和数组的下标值  
-    let id = e.target.dataset.id,
-      index = parseInt(e.target.dataset.index);
+    let id = e.target.dataset.id;
+    var index = parseInt(e.target.dataset.index);
+    //console.log("e.target.dataset.index is " + e.target.dataset.index);
     // 把点击到的某一项，设为当前index  
     this.setData({
       curNav: id,
       curIndex: index
     })
-    this.loadProducts();
-  },
-
-  loadProducts: function () {
-    var that = this;
+    var selectIndex = that.data.brands[that.data.curIndex].id;
     wx.request({
       method: 'GET',
-      url: app.globalData.host + "product/promoted",
+      url: app.globalData.host + "product/list/" + selectIndex,
       success: function (res) {
         var productList = res.data;
         for (var i = 0; i < productList.length; i++) {
           if (productList[i].imageSrc) {
             productList[i].imageSrc = app.globalData.host + productList[i].imageSrc;
           } else {
-            productList[i].imageSrc = '/images/defaultProduct.jpeg';
+            productList[i].imageSrc = '/images/defaultCate.jpeg';
           }
         }
         that.setData({
-          promotedProducts: productList
+          products: productList
+        })
+      }
+    });
+    
+  },
+
+  loadProducts: function () {
+    var that = this;
+    wx.request({
+      method: 'GET',
+      url: app.globalData.host + "product/list/1",
+      success: function (res) {
+        var productList = res.data;
+        for (var i = 0; i < productList.length; i++) {
+          if (productList[i].imageSrc) {
+            productList[i].imageSrc = app.globalData.host + productList[i].imageSrc;
+          } else {
+            productList[i].imageSrc = '/images/defaultCate.jpeg';
+          }
+        }
+        that.setData({
+          products: productList
         })
       }
     });
