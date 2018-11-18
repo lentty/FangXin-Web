@@ -1,0 +1,8 @@
+var getImageUrl = function (src) {
+    //return 'http://localhost:8080/' + src;
+    return 'https://api.fangxincq.com/' + src;
+}
+
+module.exports = {
+  getImageUrl: getImageUrl
+}

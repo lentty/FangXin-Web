@@ -1,3 +1,5 @@
+<wxs src="../../utils/formatter.wxs" module="formatter">
+</wxs>
 <view class="page">
   <view class="page__bd">
     <view class="weui-search-bar">
@@ -9,15 +11,15 @@
       </view>
     </view>
 
-    <!-- 轮播图片 -->
     <view class="swiper-block">
       <swiper indicator-dots="true" class="banner">
-        <block wx:for="{{grids.length}}" data-index="{{index}}">
+        <block wx:for="{{brands.length}}" data-index="{{index}}">
           <swiper-item>
-            <block wx:for="{{grids[index]}}">
+            <block wx:for="{{brands[index]}}">
               <navigator class="weui-grid" hover-class="weui-grid_active" url='../cat/cat' open-type='navigate'>
-                <image class="weui-grid__icon" src="../../images/guazi.jpg" bindtap='onCatImageClick' data-key='{{item}}' />
-                <view class="weui-grid__label">瓜子</view>
+                <image class="weui-grid__icon" wx:if="{{item.imageSrc}}" src="{{formatter.getImageUrl(item.imageSrc)}}" bindtap='onCatImageClick'/>
+                <image class="weui-grid__icon" wx:else src="../../images/guazi.jpg" bindtap='onCatImageClick'/>
+                <view class="weui-grid__label">{{item.name}}</view>
               </navigator>
             </block>
           </swiper-item>

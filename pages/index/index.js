@@ -1,5 +1,6 @@
 //index.js
 //获取应用实例   
+const BRAND_PER_PAGE = 10;
 var app = getApp()
 Page({
   data: {
@@ -9,16 +10,40 @@ Page({
     focus: true,
     inputShowed: false,
     inputVal: "",
+    brands: [],
     grids: [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9],[0,1,2,3]],
     products: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
   },
 
   onLoad: function () {
-
     var that = this;
     console.log("grids length is " + that.data.grids.length);
-
+    this.loadBrands();
     this.loadProducts();
+  },
+
+  loadBrands: function(){
+    var that = this;
+    wx.request({
+      method: 'GET',
+      url: app.globalData.host + "brand/list",
+      success: function (res) {  
+        var brandData = res.data;
+        var pages = Math.ceil(brandData.length / BRAND_PER_PAGE);
+        console.log('pages: ' + pages);
+        var arrays = new Array();
+        for (var i = 0; i < pages; i++){
+          arrays[i] = new Array();
+          for (var j = 0; j < BRAND_PER_PAGE; j++){
+            arrays[i][j] = brandData[i * BRAND_PER_PAGE + j];
+          }
+        }
+        console.log('Arrays: ' + arrays);
+        that.setData({
+          brands: arrays
+        })
+      }
+    });
   },
 
   goToSearchPage: function(evt) {
@@ -60,25 +85,6 @@ Page({
   },
   loadProducts: function(){
     var that = this;
-    wx.request({
-      method: 'GET',
-      url: app.globalData.host + "product/promotedImages",
-      success: function (res) {
-        var images = res.data;
-        if(images.length!=0){
-          for (var i = 0; i < images.length; i++) {
-            images[i].fileLocation = app.globalData.host + images[i].fileLocation;
-          }
-        }else{
-          images = [];
-          var image = { fileLocation: '/images/defaultCate.jpeg' };
-          images.push(image);
-        }
-        that.setData({
-          promotedIamges: images
-        })
-      }
-    });
     wx.request({
       method: 'GET',
       url: app.globalData.host + "product/promoted",
