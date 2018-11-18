@@ -138,6 +138,7 @@ Page({
   accountOrder: function() {
     wx.showModal({
       title: '提示',
+      showCancel: false,
       content: 'App价格为零售价, 购买和咨询团购价请拨打13101210006, 可以享受更多优惠哦！配送限重庆地区',
     })
   },

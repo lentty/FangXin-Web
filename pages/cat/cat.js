@@ -10,18 +10,18 @@ Page({
     inputShowed: false,
     inputVal: "",
     products: [],
-
+    brandId: 0
   },
 
-  onShow: function(option){
-    //var that = this;
-    //console.log(app.globalData.cat_id.target.dataset.key);
-
-    //requert
-    //set app.globalData.cat_id.target.dataset.key == null
-
-    
-
+  onShow: function(){
+    var globalBrandId = app.globalData.brandId;
+    if (globalBrandId != null && globalBrandId != this.data.brandId){
+      this.setCurrentIndex(this.data.brands, globalBrandId);
+      this.setData({
+        brandId: globalBrandId
+      })
+      this.loadProducts();
+    }
   },
 
   onLoad: function() {
@@ -31,25 +31,19 @@ Page({
       method: 'GET',
       success: function(res) {
         console.log(res.data);
-        var brandList = res.data;
-        for (var i = 0; i < brandList.length; i++) {
-          var catelist = brandList[i].cateList;
-          if (catelist) {
-            for (var j = 0; j < catelist.length; j++) {
-              if (catelist[j].imageSrc) {
-                catelist[j].imageSrc = app.globalData.host + catelist[j].imageSrc;
-              } else {
-                catelist[j].imageSrc = '/images/defaultCate.jpeg';
-              }
-            }
-          }
-        }
         that.setData({
-          brands: brandList,
+          brands: res.data,
         });
+        if (app.globalData.brandId == null) {
+          app.globalData.brandId = res.data[0].id
+        }
+        that.setCurrentIndex(res.data, app.globalData.brandId);
+        that.setData({
+          brandId: app.globalData.brandId
+        })
+        that.loadProducts();
       }
     });
-    this.loadProducts();
   },
 
   switchTab: function(e) {
@@ -68,42 +62,41 @@ Page({
       method: 'GET',
       url: app.globalData.host + "product/list/" + selectIndex,
       success: function (res) {
-        var productList = res.data;
-        for (var i = 0; i < productList.length; i++) {
-          if (productList[i].imageSrc) {
-            productList[i].imageSrc = app.globalData.host + productList[i].imageSrc;
-          } else {
-            productList[i].imageSrc = '/images/defaultCate.jpeg';
-          }
-        }
         that.setData({
-          products: productList
+          products: res.data
         })
       }
-    });
-    
+    }); 
   },
 
   loadProducts: function () {
     var that = this;
+    var globalBrandId = app.globalData.brandId;
+    this.data.products = [];
     wx.request({
       method: 'GET',
-      url: app.globalData.host + "product/list/1",
+      url: app.globalData.host + "product/list/" + globalBrandId,
       success: function (res) {
-        var productList = res.data;
-        for (var i = 0; i < productList.length; i++) {
-          if (productList[i].imageSrc) {
-            productList[i].imageSrc = app.globalData.host + productList[i].imageSrc;
-          } else {
-            productList[i].imageSrc = '/images/defaultCate.jpeg';
-          }
-        }
         that.setData({
-          products: productList
+          products: res.data
         })
       }
     });
   },
+ 
+  setCurrentIndex: function(brands, brandId){
+    var size = brands.length;
+    for(var i = 0; i < size; i++){
+      if(brands[i].id == brandId){
+        this.setData({
+          curNav: brandId,
+          curIndex: i
+        })
+        break;
+      }
+    }
+  },
+
   showInput: function() {
     this.setData({
       inputShowed: true

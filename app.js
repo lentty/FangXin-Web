@@ -3,7 +3,7 @@ App({
   globalData: {
     host: "https://api.fangxincq.com/",
    // host: "http://localhost:8080/",
-   cat_id:null
+   brandId:null
    
   },
   data: {

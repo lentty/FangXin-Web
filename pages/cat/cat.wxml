@@ -1,3 +1,5 @@
+<wxs src="../../utils/formatter.wxs" module="formatter">
+</wxs>
 <view class="page">
   <view class="page__bd">
     <view class="weui-search-bar">
@@ -9,15 +11,15 @@
       </view>
     </view>
     <scroll-view scroll-x="true" class='brands'>
-      <view wx:for="{{brands}}" class="brands-items {{curNav == item.id ? 'active' : ''}}" bindtap="switchTab" data-index="{{index}}" data-id="{{item.id}}">{{item.name}}</view>
+      <view wx:for="{{brands}}" class="brands-items {{curNav == item.id ? 'active' : ''}}" bindtap="switchTab" data-index="{{index}}" data-id="{{item.id}}" wx:key="id">{{item.name}}</view>
     </scroll-view>
     <scroll-view scroll-y="true" wx:if="{{products.length > 0}}" class=''>
       <view class="weui-panel weui-panel_access">
         <view class="weui-panel__bd">
-          <navigator wx:for="{{products}}" url="../product/product?productId={{item.id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <navigator wx:for="{{products}}" url="../product/product?productId={{item.id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" wx:key="id">
             <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-              <image wx:if="{{item.imageSrc}}" class="weui-media-box__thumb" src="{{item.imageSrc}}"></image>
-              <image wx:else src="../../images/defaultCate.jpeg"></image>
+              <image wx:if="{{item.imageSrc}}" class="weui-media-box__thumb" src="{{formatter.getImageUrl(item.imageSrc)}}"></image>
+              <image class="weui-media-box__thumb" wx:else src="../../images/defaultCate.jpeg"></image>
             </view>
             <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
               <view class="weui-media-box__title">{{item.name}}</view>

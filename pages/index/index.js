@@ -11,13 +11,10 @@ Page({
     inputShowed: false,
     inputVal: "",
     brands: [],
-    grids: [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9],[0,1,2,3]],
     products: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
   },
 
   onLoad: function () {
-    var that = this;
-    console.log("grids length is " + that.data.grids.length);
     this.loadBrands();
     this.loadProducts();
   },
@@ -29,16 +26,17 @@ Page({
       url: app.globalData.host + "brand/list",
       success: function (res) {  
         var brandData = res.data;
-        var pages = Math.ceil(brandData.length / BRAND_PER_PAGE);
-        console.log('pages: ' + pages);
+        var size = brandData.length;
+        var pages = Math.ceil(size / BRAND_PER_PAGE);
         var arrays = new Array();
         for (var i = 0; i < pages; i++){
           arrays[i] = new Array();
           for (var j = 0; j < BRAND_PER_PAGE; j++){
-            arrays[i][j] = brandData[i * BRAND_PER_PAGE + j];
+            if (i * BRAND_PER_PAGE + j < size){
+              arrays[i][j] = brandData[i * BRAND_PER_PAGE + j];
+            }
           }
         }
-        console.log('Arrays: ' + arrays);
         that.setData({
           brands: arrays
         })
@@ -52,10 +50,10 @@ Page({
     })
   },
 
-  onCatImageClick: function(event) {
-    app.globalData.cat_id = event;
+  onBrandImageClick: function(event) {
+    app.globalData.brandId = event.target.dataset.brandid;
     wx.switchTab({
-      url: '../cat/cat',
+      url: '../cat/cat'
     })
   },
 
