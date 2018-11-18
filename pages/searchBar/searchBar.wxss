@@ -95,3 +95,74 @@ button.search_button{
   border-radius: 5px;
 }
 
+.nodata_text {
+  display: block;  
+  right: 0; 
+  color: black;
+  font-size: 14px;  
+  text-align: center;  
+} 
+
+.brands {
+ white-space: nowrap; 
+ display: flex
+}
+
+.brands-items {
+  display: inline-block;
+  /*再设上下padding增加高度，总高42px*/  
+  margin: 0px 4px 4px 4px;  
+  padding: 0px 4px 4px 4px;  
+  /*文字14px*/  
+  font-size: 14px; 
+}
+
+.brands-items.active{  
+  /*背景色变成白色*/  
+  color:#4caf50; 
+  font-weight: bold;
+  font-size: 16px;
+} 
+
+.page__bd{
+  background-color: #fff;
+}
+
+.weui-media-box__title {
+  font-size: 14px;
+  position: absolute;
+  top: 0px;
+  padding: 15px 0px;
+}
+
+.item_spec_block{
+  position: relative;
+  top: 0px;
+  padding:5px 0px;
+}
+
+.item_spec {
+  font-size: 12px;
+  border: 1px solid;
+  padding: 3px;
+  border-radius: 5px;
+}
+
+.item_price_block {
+  position: absolute;
+  bottom: 0px;
+  padding:15px 0px;
+}
+
+.item_price {
+  color:#f0145a;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.weui-media-box__hd_in-appmsg {
+  width: 100px;
+  height: 100px;
+  padding: 0px 10px;
+}
+

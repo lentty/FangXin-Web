@@ -8,7 +8,11 @@ Page({
     focus: true,
     inputShowed: false,
     inputVal: "",
-    hotKeyWords: []
+    hotKeyWords: [],
+    listShow: true,
+    keywordsShow: false,
+    clearIconHide: true,
+    products: [],
   },
 
   onLoad: function() {
@@ -37,9 +41,10 @@ Page({
   onHotKeywordPress: function(e) {
     var index = parseInt(e.target.dataset.index);
     var hotKeyWord = this.data.hotKeyWords[index];
-    console.log("Your select is " + hotKeyWord);
+    //console.log("Your select is " + hotKeyWord);
     this.setData ({
-      inputVal: hotKeyWord
+      inputVal: hotKeyWord,
+      clearIconHide: false
     })
   },
 
@@ -56,15 +61,20 @@ Page({
   },
   clearInput: function() {
     this.setData({
-      inputVal: ""
+      inputVal: "",
+      clearIconHide: true
+      
     });
   },
   inputTyping: function(e) {
     console.log(e.detail.value);
     this.setData({
-      inputVal: e.detail.value
+      inputVal: e.detail.value,
+      clearIconHide: false
     });
   },
+
+
   onShow: function() {
     //this.loadProducts();
   },
@@ -116,9 +126,45 @@ Page({
   },
   searchProductData: function(searchKey) {
     var that = this;
-    wx.navigateTo({
-      url: '../list/list?key=' + searchKey
-    })
-  }
+    // wx.navigateTo({
+    //   url: '../list/list?key=' + searchKey
+    // })
+    this.searchDataByKey(searchKey);
+  },
+
+  searchDataByKey: function (searchKey) {
+  var that = this;
+  wx.request({
+    url: app.data.host + 'product/search/' + searchKey,
+    method: 'GET',
+    header: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    success: function (res) {
+      console.log(res.data);
+      var productList = res.data;
+      for (var i = 0; i < productList.length; i++) {
+        if (productList[i].imageSrc) {
+          productList[i].imageSrc = app.globalData.host + productList[i].imageSrc;
+        } else {
+          productList[i].imageSrc = '/images/defaultCate.jpeg';
+        }
+      }
+      console.log(productList);
+      that.setData({
+        products: productList,
+        listShow: false,
+        keywordsShow: true
+
+      });
+    },
+    fail: function (e) {
+      wx.showToast({
+        title: '网络异常！',
+        duration: 2000
+      });
+    },
+  });
+}
 
 })
