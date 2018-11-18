@@ -113,14 +113,14 @@ page {
   margin: 0px 4px 4px 4px;  
   padding: 0px 4px 4px 4px;  
   /*文字14px*/  
-  font-size: 14px; 
+  font-size: 16px; 
 }
 
 .brands-items.active{  
   /*背景色变成白色*/  
   color:#4caf50; 
   font-weight: bold;
-  font-size: 16px;
+  font-size: 20px;
 } 
 
 .page__bd{

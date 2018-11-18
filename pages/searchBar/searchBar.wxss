@@ -88,7 +88,7 @@ button.search_button{
 
 .tagContainer .label{
   display: inline-flex;
-  font-size: 12px;
+  font-size: 14px;
   border: 1px solid #e8e8ed;
   padding: 3px;
   margin: 3px;

@@ -6,7 +6,7 @@
       <view class="weui-search-bar__form">
         <view class="weui-search-bar__box">
           <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-          <input type="text" class="weui-search-bar__input" placeholder='输入关键字搜索商品' bindfocus='goToSearchPage'/>
+          <input type="text" class="weui-search-bar__input" placeholder='输入关键字搜索商品' bindtap='goToSearchPage'/>
         </view>
       </view>
     </view>

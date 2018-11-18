@@ -6,7 +6,7 @@
       <view class="weui-search-bar__form">
         <view class="weui-search-bar__box">
           <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-          <input type="text" class="weui-search-bar__input" placeholder='输入关键字搜索商品' bindfocus='goToSearchPage' />
+          <input type="text" class="weui-search-bar__input" placeholder='输入关键字搜索商品' bindtap='goToSearchPage' />
         </view>
       </view>
     </view>
@@ -17,8 +17,13 @@
           <swiper-item>
             <block wx:for="{{brands[index]}}" wx:key="id">
               <navigator class="weui-grid" hover-class="weui-grid_active" url='../cat/cat' open-type='navigate'>
+<<<<<<< Updated upstream
                 <image class="weui-grid__icon" wx:if="{{item.imageSrc}}" src="{{formatter.getImageUrl(item.imageSrc)}}" bindtap='onBrandImageClick' data-brandid="{{item.id}}"/>
                 <image class="weui-grid__icon" wx:else src="../../images/guazi.jpg" bindtap='onBrandImageClick' data-brandid="{{item.id}}"/>
+=======
+                <image class="weui-grid__icon" wx:if="{{item.imageSrc}}" src="{{formatter.getImageUrl(item.imageSrc)}}" bindtap='onCatImageClick' />
+                <image class="weui-grid__icon" wx:else src="../../images/guazi.jpg" bindtap='onCatImageClick' />
+>>>>>>> Stashed changes
                 <view class="weui-grid__label">{{item.name}}</view>
               </navigator>
             </block>
@@ -27,28 +32,7 @@
       </swiper>
     </view>
 
-    <!-- <view class="weui-grids">
-      <block wx:for="{{grids}}" >
-
-            <navigator class="weui-grid" hover-class="weui-grid_active" url='../cat/cat' open-type='navigate'>
-          <image class="weui-grid__icon" src="../../images/guazi.jpg" bindtap='onCatImageClick' data-key='{{item}}' />
-          <view class="weui-grid__label">瓜子</view>
-        </navigator>
-      </block>
-
-    </view>
-
-    <view class="weui-grids">
-      <block wx:for="{{grids}}" >
-            <navigator class="weui-grid" hover-class="weui-grid_active" url='../cat/cat' open-type='navigate'>
-          <image class="weui-grid__icon" src="../../images/guazi.jpg" bindtap='onCatImageClick' data-key='{{item}}' />
-          <view class="weui-grid__label">瓜子</view>
-        </navigator>
-      </block>
-
-    </view> -->
-
-    <view class="weui-panel weui-panel_access">
+    <!-- <view class="weui-panel weui-panel_access">
       <view class="weui-panel__hd">特价商品</view>
       <view class="weui-panel__bd">
         <navigator wx:for="{{promotedProducts}}" wx:key="id" url="../product/product?productId={{item.id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
@@ -68,59 +52,23 @@
           </view>
         </navigator>
       </view>
-    </view>
-    <!-- <view class="product-grids">
-      <text class="grids-text">特价商品</text>
-      <block wx:for="{{products}}" wx:key="*this">
-        <navigator url="" class="product-grid" hover-class="weui-grid_active">
-          <image class="product-grid__icon" src="../images/icon_tabbar.png" />
-          <view class="product-grid__label">Grid</view>
-        </navigator>
-      </block>
     </view> -->
+    <view class="promoteProd">
+    <text class="grids-text">特价商品</text>
+    <view class="weui-grids_prod">
+      <navigator url="../product/product?productId={{item.id}}" class="weui-grid_prod" hover-class="weui-grid_active" wx:for="{{promotedProducts}}" wx:key="*this">
+        <image class="weui-grid__icon_prod" src="{{item.imageSrc}}"></image>
+        <view class="weui-grid__label_prod">
+          <text class= "item_name_prod">{{item.name}}</text>
+          <view class= "item_spec_block">
+          <text class="item_spec item_spec_prod">{{item.spec}}/{{item.unit}}</text>
+          </view>
+          <text class="item_price item_price_prod">¥ {{item.retailPrice}}</text>
   </view>
+  </navigator>
+</view>
+</view>
+</view>
 </view>
 
 
-
-
-<!--view class="container">
-  <scroll-view scroll-y="true" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" 
-  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" class="scrollStyle"> 
-    <view class="top">
-      <input type="text" placeholder="输入关键字搜索商品" placeholder-style="font-size:70%" auto-focus focus="{{focus}}" value="{{searchValue}}"
-        bindinput="searchValueInput"/>
-      <view class="search_btn" bindtap="doSearch"><image src="../../images/home_top_search@2x.png"></image></view>
-    </view>
-    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="banner">
-      <block wx:for="{{promotedIamges}}">
-         <navigator url="../product/product?productId={{item.productId}}">
-           <swiper-item>
-             <image src="{{item.fileLocation}}"/>
-           </swiper-item>
-        </navigator>
-      </block>
-    </swiper> 
-    <view class="down">
-      <view class="down_title"><text>热销商品</text></view>
-      <view  wx:for="{{promotedProducts}}" data-index="{{index}}" data-id="{{item.id}}" class="list">
-          <navigator url="../product/product?productId={{item.id}}">
-              <view class="imgs"><image class="in-img" src="{{item.imageSrc}}"background-size="cover" mode="scaleToFill"></image></view>
-              <view class="nav_right">
-                <view class="right_top">
-                  <text class="text_name">{{item.name}}</text>
-                </view>
-                <view class="right_down">
-                  <view class="left_spec">
-                    <text class="text_spec">{{item.spec}}/{{item.unit}} </text>
-                  </view>
-                  <view class="right_price">
-                    <text class="text_style">¥ {{item.retailPrice}}</text>
-                  </view>
-                </view>
-              </view>
-          </navigator>
-      </view>
-    </view>
-  </scroll-view>
-</view-->
