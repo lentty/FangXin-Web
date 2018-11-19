@@ -50,7 +50,7 @@
       </view>
     </view> -->
     <view class="promoteProd">
-      <text class="grids-text">特价商品</text>
+      <view class="index_label_view"><text class="grids-text">特价商品</text></view>
       <view class="weui-grids_prod">
         <navigator url="../product/product?productId={{item.id}}" class="weui-grid_prod" hover-class="weui-grid_active" wx:for="{{promotedProducts}}" wx:key="*this">
           <image class="weui-grid__icon_prod" src="{{item.imageSrc}}"></image>

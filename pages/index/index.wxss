@@ -167,6 +167,9 @@ navigator.weui-grid {
   background-color: #FFFFFF;
 
 }
+.index_label_view{
+ padding-top: 16rpx; 
+}
 
 .grids-text {
   padding: 2%;
