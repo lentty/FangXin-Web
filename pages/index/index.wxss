@@ -165,7 +165,6 @@ navigator.weui-grid {
 .promoteProd {
   margin: 10px 0px;
   background-color: #FFFFFF;
-
 }
 .index_label_view{
  padding-top: 16rpx; 

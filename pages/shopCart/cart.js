@@ -22,7 +22,7 @@ Page({
           if (shoppingList[i].product.imageSrc) {
             shoppingList[i].imageSrc = app.globalData.host + shoppingList[i].product.imageSrc;
           } else {
-            shoppingList[i].imageSrc = '/images/defaultProduct.jpeg';
+            shoppingList[i].imageSrc = '/images/defaultCate.jpeg';
           }
         }
         that.setData({
