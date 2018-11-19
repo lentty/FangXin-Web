@@ -19,6 +19,12 @@ Page({
     this.loadProducts();
   },
 
+  onPullDownRefresh: function () {
+    this.loadBrands();
+    this.loadProducts();
+    wx.stopPullDownRefresh();
+  },
+
   loadBrands: function(){
     var that = this;
     wx.request({

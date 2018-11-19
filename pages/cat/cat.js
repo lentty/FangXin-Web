@@ -25,11 +25,15 @@ Page({
   },
 
   onLoad: function() {
+    this.loadBrands();
+  },
+
+  loadBrands: function(){
     var that = this;
     wx.request({
       url: app.data.host + 'brand/list',
       method: 'GET',
-      success: function(res) {
+      success: function (res) {
         console.log(res.data);
         that.setData({
           brands: res.data,
@@ -46,6 +50,11 @@ Page({
     });
   },
 
+  onPullDownRefresh: function () {
+    this.loadBrands();
+    wx.stopPullDownRefresh();
+  },
+
   switchTab: function(e) {
     var that = this;
     // 获取item项的id，和数组的下标值  
@@ -58,6 +67,10 @@ Page({
       curIndex: index
     })
     var selectIndex = that.data.brands[that.data.curIndex].id;
+    app.globalData.brandId = selectIndex;
+    this.setData({
+      brandId: selectIndex
+    })
     wx.request({
       method: 'GET',
       url: app.globalData.host + "product/list/" + selectIndex,
