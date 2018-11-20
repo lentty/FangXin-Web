@@ -5,8 +5,8 @@ Page({
     product: [],
     isOpen: false,
     isShow: false,
+    // userId: 1,
     buynum: 1,
-    userId: 1,
     indicatorDots: true
   },
 
@@ -57,11 +57,13 @@ Page({
   toastTap: function (e) {
     var that = this;
     console.log(that.data);
+    let userId = wx.getStorageSync('userId');
+    console.log('userId from storage: ' + userId);
     wx.request({
       url: app.data.host+'shoppingCart', 
       method: 'POST',
       data: {
-        userId: that.data.userId,
+        userId: userId,
         productId: that.data.product.id,
         amount: that.data.buynum
       },

@@ -13,25 +13,28 @@ Page({
   },
   loadProducts: function() {
     var that = this;
-    wx.request({
-      url: app.data.host + 'shoppingCart/list/1',
-      method: 'GET',
-      success: function (res) {
-        var shoppingList = res.data;
-        for (var i = 0; i < shoppingList.length; i++) {
-          if (shoppingList[i].product.imageSrc) {
-            shoppingList[i].imageSrc = app.globalData.host + shoppingList[i].product.imageSrc;
-          } else {
-            shoppingList[i].imageSrc = '/images/defaultCate.jpeg';
+    let userId = wx.getStorageSync('userId');
+    if(userId){
+      wx.request({
+        url: app.data.host + 'shoppingCart/list/' + userId,
+        method: 'GET',
+        success: function (res) {
+          var shoppingList = res.data;
+          for (var i = 0; i < shoppingList.length; i++) {
+            if (shoppingList[i].product.imageSrc) {
+              shoppingList[i].imageSrc = app.globalData.host + shoppingList[i].product.imageSrc;
+            } else {
+              shoppingList[i].imageSrc = '/images/defaultCate.jpeg';
+            }
           }
+          that.setData({
+            shoppingList: shoppingList
+          })
+          //console.log(shoppingList);
+          that.sum();
         }
-        that.setData({
-          shoppingList: shoppingList
-        })
-        //console.log(shoppingList);
-        that.sum();
-      }
-    });
+      });
+    }
   },
   switchSelect: function(e) {
     var index = parseInt(e.currentTarget.dataset.index);
