@@ -166,3 +166,12 @@ button.search_button{
   padding: 0px 10px;
 }
 
+.searchKeywords {
+  padding-top: 40px;
+}
+
+.productList{
+  padding-top: 40px;
+
+}
+

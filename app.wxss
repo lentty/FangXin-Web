@@ -38,6 +38,12 @@ page{
 .weui-search-bar{
   background-color: #FFFFFF;
   border: none;
+  position: fixed;
+  padding: 20rpx;
+  top:0;
+  left:0;
+  z-index:99;
+  width:100%;
 }
 
 .weui-search-bar__form{
