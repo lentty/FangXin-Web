@@ -194,7 +194,7 @@ button.button-green.disabled {
 
 .total_price_block {
   padding: 14rpx 0;
-  width: 120px;
+  width: 140px;
 }
 
 .footer .price {
